@@ -1,0 +1,947 @@
+@import 'vendors/normalize';
+@import 'vendors/bootstrap4-grid'; // Bootstrap 4 grid
+@import 'inc/mixins_and_helpers';
+
+// ----------------------------------------------------------------
+// VARIABLES
+// ----------------------------------------------------------------
+
+// ** @font-face **
+
+@font-face{
+    font-family: system;
+    font-style: normal;
+    font-weight: 300;
+    src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"), local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"), local("Roboto-Light"), local("DroidSans"), local("Tahoma");
+}
+
+// DIN
+@font-face {
+    font-family: 'DIN';
+    src: url('../fonts/DIN/DINCondensed-Bold.woff2') format('woff2'),
+    url('../fonts/DIN/DINCondensed-Bold.woff') format('woff'),
+    url('../fonts/DIN/DINCondensed-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+// Fonts declaration
+$font-base: 'Open Sans', 'system', sans-serif;
+$font-title: 'DIN', 'Open Sans', 'system', sans-serif;
+
+
+// Colors declaration
+// NB: $tempete renamed to $grey
+$ocean--50: #E2EBF4;
+$ocean--500: #4076A6;
+$ocean--700: #213C59;
+$ocean--800: #111F2C;
+$tropique--50: #D8F9FD;
+$tropique--100: #A6C1DE;
+$tropique--700: #077B88;
+$tropique--800: #055861;
+$tropique--900: #03353A;
+$energy--50: #FFE7D6;
+$energy--100: #FFC499;
+$energy--300: #FF8833;
+$energy--500: #E35E01;
+$energy--700: #B84D00;
+
+$white: #ffffff;
+$grey--50: #E2E2DF;
+$grey--100: #C3C3C3;
+$grey--500: #55554E;
+$grey--600: #40403B;
+$black: #1E1E1C;
+
+// Semantic colors declaration
+$color-brand: $ocean--500;
+$color-base: $black;
+
+
+// #wpadminbar{ display: none; } // !!! dev only
+// ----------------------------------------------------------------
+// GENERAL
+// ----------------------------------------------------------------
+
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    max-width: 100%;
+    font-family: $font-base;
+    font-size: 16px;
+    color: $color-base;
+    line-height: 1.4;
+    overflow-x: hidden;
+
+    &.no-scroll{
+        overflow-y: hidden;
+    }
+}
+
+h1, .h1{
+    font-family: $font-title;
+    font-size: 32px;
+    line-height: 1.2;
+
+    @include respond-to('md-up'){
+        font-size: 48px;
+    }
+}
+
+h2, .h2{
+    font-family: $font-title;
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+h3, .h3{
+    font-family: $font-title;
+    font-size: 24px;
+    line-height: 1.2;
+}
+
+p,
+p a{
+    text-decoration: none;
+}
+
+a{
+    text-decoration: none;
+    color: $color-brand;
+
+    &:hover{
+        color: darken($color-brand, 10%);
+    }
+}
+
+.site-title{
+    vertical-align: middle;
+}
+
+
+// WORDPRESS CODE
+img.alignright{
+    margin: 0 0 1em 1em;
+    float: right;    
+}
+
+img.alignleft{
+    margin: 0 1em 1em 0;
+    float: left;    
+}
+
+img.aligncenter{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.alignright{
+    margin-left: 15px;
+    float: right;    
+}
+
+.alignleft{
+    margin-right: 15px;
+    float: left;    
+}
+
+.aligncenter{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img[class^='wp-image']{ height: auto; }
+
+// Carte Gmaps ACF
+.acf-map{
+    width: 100%;
+    height: 400px;
+    border: none;
+    margin: 20px 0;
+
+    /* fixes potential theme css conflict */
+    img{ max-width: inherit !important; }
+}
+
+
+// ----------------------------------------------------------------
+// HELPERS (some classes to reuse)
+// ----------------------------------------------------------------
+
+.block-center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-center{
+    text-align: center;
+}
+
+// List unstyled for <ul>,<ol>
+.list-unstyled{
+    padding-left: 0;
+    list-style: none;
+}
+
+// Loggin admin only
+.site-main .show-for-logged{
+    display: none;
+}
+.logged-in .show-for-logged{
+    display: inline-block;
+}
+
+// ----------------------------------------------------------------
+// COMPONENTS like buttons
+// ----------------------------------------------------------------
+
+// TEXT COLOR
+// Text color in copy
+
+// Text grey for light block (text more darker)
+%entry_content_text--light{
+    p, ul, ol{
+        color: $grey--600;
+    }
+}
+// Text grey for dark block (text more lighter)
+%entry_content_text--dark{
+    p, ul, ol{
+        color: $grey--50;
+    }
+}
+
+
+// BUTTONS
+// ---
+
+%btn{
+    padding: 10px 30px 6px;
+    display: inline-block;
+    border-radius: 0;
+    font-family: $font-title;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-align: center;
+
+    .btn-copy, .btn-icon{
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    // Text
+    .btn-copy{
+        text-transform: initial;
+    }
+
+    // Icon
+    .btn-icon{
+        width: 30px;        
+        margin-left: 15px;
+        position: relative;
+        top: -2px;
+        left: 10px;
+        transform-origin: center;
+        transform: scale(1.5);
+        transition: transform 0.2s ease-in-out;
+    }
+
+    &:hover{
+        .btn-icon{
+            transform: scale(1.5) translateX(8px);
+        }
+    }
+}
+
+// Primary
+.btn-primary{
+    @extend %btn;
+    background: $color-brand;
+    color: $white;
+    
+    &:hover{
+        background: darken($color-brand, 10%);
+        color: $white;
+    }
+}
+
+.btn-primary--white{
+    @extend %btn;
+    background: $white;
+    color: $color-brand;
+    border: 1px solid $color-brand;
+    
+    &:hover{
+        background: darken($color-brand, 10%);
+        color: $white;
+    }
+}
+
+.btn-primary--product{
+    &:hover{
+        color: inherit;
+        background: inherit;
+        filter: brightness(0.9);
+    }
+}
+
+// Light
+.btn-outline-light{
+    @extend %btn;
+    background: transparent;
+    color: $white;
+
+    &:hover{
+        background: darken($white, 10%);
+        color: $color-base;
+    }
+}
+
+.btn-light{
+    @extend %btn;
+    background: $white;
+    color: $color-base;
+
+    &:hover{
+        background: darken($white, 10%);
+        color: $color-base;
+    }
+}
+
+// Outline with border gradient
+.btn-outline-gradient{
+    @extend %btn;
+    color: $color-base;
+    border: 2px solid;
+    border-image: linear-gradient(302.98deg, #{$black} 12.8%, #{$ocean--500} 58.82%) 1;
+
+    &:hover{
+        color: $color-brand;
+    }
+}
+.btn-outline-gradient--white{
+    @extend %btn;
+    color: $white;
+    border: 2px solid;
+    border-image: linear-gradient(302.98deg, #{$white} 12.8%, #{$ocean--500} 58.82%) 1;
+
+    &:hover{
+        color: $white;
+    }
+}
+
+// Link (no border)
+.btn-link-arrow{
+    @extend %btn;
+    padding: 0;
+    padding-right: 40px;
+    color: $grey--600;
+
+    &:hover{
+        color: $grey--600;
+    }
+}
+
+// Scroll button (in footer.php)
+.scroll-btn{
+    display: inline-block;
+    color: $grey--100;
+
+    &:hover{
+        color: $grey--100;
+
+        .scroll-btn__icon{
+            transform: translateY(-10px);
+        }
+    }
+
+    &__icon{
+        transform-origin: center;
+        transform: translateY(0);
+        transition: transform 0.2s ease-in-out;
+    }
+
+    &__label{
+        text-align: center;
+        font-size: 13px;
+
+        @include respond-to('md-up'){
+            font-size: 16px;            
+        }
+    }
+
+    img{
+        transform-origin: center;
+        transform: rotateZ(-90deg);
+    }
+}
+
+
+// DROPDOWN
+.dropdown{
+    width: 100%;
+    display: inline-block;
+    position: relative;
+
+    &.is-active{
+        .dropdown__icon{
+            transform: rotateZ(180deg);
+        }
+    }
+
+    // Toggle
+    &__toggle{
+        @include flex(space-between, center);        
+        width: 100%;
+        padding: 15px;
+        position: relative;       
+        background: transparent;
+        font-family: $font-title;
+        color: $white;
+        border: 1px solid $white;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+
+        &:hover{
+            opacity: 0.9;            
+        }
+    }
+    &__icon{
+        display: inline-block;
+        margin-left: 10px;
+        transform-origin: center;
+        transform: rotateZ(0);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    // Collapse
+    &__collapse{
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        border: 1px solid $grey--50;
+    }
+    &__link{
+        width: 100%;
+        display: block;
+        padding: 10px 35px;
+        background: $white;
+        color: $color-base;
+
+        &:hover{
+            background: #f5f5f5;
+        }
+    }
+}
+
+
+// SEPARATORS
+// ---
+
+// Separator waves
+.separator-wave{
+    max-width: 100%;
+    position: relative;
+    z-index: 1;
+    overflow-x: hidden;
+    touch-action: none;
+    transform-origin: center;
+    transform: scaleY(1.01);
+
+    @supports ( overflow-x: clip ){
+        overflow-x: clip;
+        transform: none;
+    }
+
+    &__img{
+        transform-origin: center;
+        transform: scaleY(1.01);
+
+        @supports ( overflow-x: clip ){
+            transform: scaleY(1.01);
+        }
+    }
+}
+
+// Separator line
+.separator-line{
+    width: 100%;
+    max-width: 100vw;
+    position: relative;
+    z-index: 1;
+}
+
+
+// TAGS
+// ---
+
+.tags{
+    --tags-bcg: $ocean--700;
+    --tags-text: $white;
+
+    &__list{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        @include respond-to('md'){
+            flex-direction: column;
+        }
+    }
+    &__item{
+        display: inline-block;
+        padding: 5px 15px;
+        background: var(--tags-bcg);
+        color: var(--tags-text);
+        font-family: $font-title;
+        
+        @include respond-to('md'){
+            padding: 5px 25px;
+            width: fit-content;
+        }
+    }
+}
+
+
+// PAGINATION
+// ---
+
+.pagination{
+    padding-bottom: 60px;
+
+    @include respond-to('md-up'){
+        padding-bottom: 90px;
+    }
+
+    // Nav container
+    .nav-links{
+        @extend .block-center;
+        width: max-content;        
+    }
+
+    // Page numbers link
+    .page-numbers{
+        padding: 2px 15px;
+        display: inline-block;
+        position: relative;
+        font-family: $font-title;
+        font-size: 24px;
+        color: $grey--500;
+        opacity: 0.8;
+
+        @include respond-to('md-up'){
+            padding: 2px 10px;
+            font-size: 48px;
+        }
+
+        &::after{
+            content: '';
+            @include size(30px, 2px);
+            display: block;
+            position: absolute;
+            left: calc(50% - 15px);
+            bottom: 5px;
+            z-index: 0;
+            border-radius: 50%;
+            background: $grey--500;
+            opacity: 0;
+        }
+
+        &.current, &:hover{
+            position: relative;
+            opacity: 1;
+
+            &::after{
+                opacity: 1;
+            }
+        }
+
+
+    }
+    
+    // Chevron
+    [class^=icon-chevron]{
+        display: inline-block;
+        position: relative;
+        top: -2px;
+        transform-origin: center;        
+    }
+    .icon-chevron--prev{
+        transform: rotateZ(90deg);
+    }
+    .icon-chevron--next{
+        transform: rotateZ(-90deg);
+    }
+}
+
+
+// ----------------------------------------------------------------
+// PLUGINS
+// ----------------------------------------------------------------
+
+// FORMIDABLE
+// ---
+
+body{
+    // CSS vars
+    .with_frm_style{
+        --field-height: 45px;
+        --border-color: #{$color-brand};
+        --border-radius: 0;
+        --field-pad: 10px 15px;
+        --font: $font-base;
+        --font-size: 13px;
+    }
+
+    // Required
+    .with_frm_style .frm_required{
+        display: none;
+    }
+
+    // Buttons
+    .frm_style_style-formidable.with_frm_style .frm_submit button{
+        @extend .btn-primary;
+        border: none;
+    }
+
+
+    // NEWSLETTER variation
+    // ---
+    .newsletter-bloc{
+        // Fields container
+        .frm_fields_container{
+            align-items: center;
+        }
+
+        // Label
+        .frm_primary_label{
+            --label-color: $white;
+        }
+
+        // Input
+        .form-field{
+            grid-column: span 7 / span 1;
+        }
+
+        // Button
+        .frm_submit{
+            grid-column: span 5 / span 1;
+        }
+        .frm_style_style-formidable.with_frm_style .frm_submit .frm_button_submit{
+            @extend %btn;
+            background: transparent;
+            box-shadow: none;
+            color: $white;
+            border: 2px solid;
+            border-image: linear-gradient(302.98deg, #{$white} 12.8%, #{$ocean--500} 58.82%) 1;
+
+            &:hover{
+                color: $white;
+                opacity: 0.85;
+            }
+        }
+    }
+
+}
+
+
+// WPML
+// ---
+
+.wpml-ls{
+    width: max-content;
+    margin-left: auto; 
+    display: inline-block;
+    order: -1;
+
+    @include respond-to('md-up'){
+        margin-left: unset;        
+    }
+
+    @include respond-to('lg-up'){
+        order: initial;
+    }
+
+    ul{
+        @extend .list-unstyled;
+        margin: 0;
+    }
+
+    // Toggle
+    .wpml-ls-item-toggle{
+        height: 46px;
+        padding: 12px 10px;
+        background: transparent;
+    }
+
+    // Lang btn link native
+    .wpml-ls-native{
+        font-size: 18px;
+        line-height: 0.8;
+        color: $grey--600;
+        border-color: $grey--600;
+    }
+
+    // Chevron
+    &.wpml-ls-legacy-dropdown-click a.wpml-ls-item-toggle::after{
+        @include size(14px, 10px);
+        border: none;
+        background-image: url('../images/svg/icon-chevron-down--600.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
+
+    // Flag
+    &.wpml-ls-legacy-dropdown-click .wpml-ls-flag{
+        margin-right: 5px;
+    }
+
+    // SUBMENU
+    &.wpml-ls-legacy-dropdown-click .wpml-ls-sub-menu a{
+        height: 46px;
+        padding: 12px 10px;
+    }
+}
+
+
+// MEGA MENU
+// ---
+
+// Toggle bar
+// #mega-menu-wrap-primary .mega-menu-toggle .mega-toggle-block-0 .mega-toggle-animated-inner,
+// #mega-menu-wrap-primary .mega-menu-toggle .mega-toggle-block-0 .mega-toggle-animated-inner::before,
+// #mega-menu-wrap-primary .mega-menu-toggle .mega-toggle-block-0 .mega-toggle-animated-inner::after{
+//     background: #40403B;
+//     border-radius: 0;
+// }
+
+// Megamenu mobile new design
+#mega-menu-wrap-primary{    
+    @include respond-to('lg'){
+        width: 100%;
+        height: 100vh;
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        background: linear-gradient(180deg, #{$white} 0%, #{$ocean--50} 100%);
+    }
+
+    &.is-active{
+        overflow-y: scroll;
+
+        .megamenu-toggle{
+            transform: rotateZ(180deg);
+        }
+    }
+}
+
+// Custom togglebar for Mobile menu
+.megamenu-toggle{
+    @include size(36px, 36px);
+    padding: 0;
+    display: block;    
+    background: 0;
+    border: none;
+    cursor: pointer;
+    transform-origin: center;
+    transform: rotateZ(0);
+    transition: transform 0.4s ease-in-out;
+
+    &.is-cross{
+        margin: 15px 15px 0 auto;
+        background-image: url('../images/svg/icon-cross.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    &:hover{
+        opacity: 0.8;
+    }
+}
+
+// Mobile menu
+#mega-menu-wrap-primary .mega-menu-toggle + #mega-menu-primary{
+    padding: 45px 0;    
+    width: 100%;
+    min-height: calc(100% - 52px);
+    background: transparent;
+
+    @include respond-to('lg-up'){
+        width: auto;
+        min-height: unset;
+        padding: 0;
+    }
+}
+
+// Menu list item first level
+#mega-menu-wrap-primary #mega-menu-primary li.mega-menu-item{
+    padding: 12px 0;
+    
+    @include respond-to('lg-up'){
+        padding: 0;        
+    }
+}
+
+// Menu item open
+.mega-toggle-on .mega-menu-link::after{
+    transform: rotateZ(180deg);
+}
+
+// Menu Item link first level
+#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item > a.mega-menu-link,
+#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item.mega-current-menu-ancestor > a.mega-menu-link{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    position: relative;
+    font-family: $font-title;
+    font-size: 26px;
+
+    &:after{
+        content: '';
+        @include size(20px, 20px);
+        display: block;
+        position: absolute;
+        top: calc(50% - 12px);
+        right: 15px;
+        z-index: 0;
+        background-image: url('../images/svg/icon-chevron-down--600.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        transform-origin: center;
+        // transform: rotateZ(0);
+        transition: transform 0.3s ease-in-out;
+
+        @include respond-to('lg-up'){
+            display: none;
+        }
+    }
+
+    @include respond-to('lg-up'){
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 24px;
+    }
+}
+
+// Mega sub menu -> center child
+#mega-menu-wrap-primary #mega-menu-primary[data-effect="fade_up"] li.mega-menu-item.mega-menu-megamenu > ul.mega-sub-menu{
+    @include respond-to('lg-up'){
+        text-align: center;
+    }
+}
+
+
+// Mega sub menu row  == width as .container
+#mega-menu-wrap-primary #mega-menu-primary li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-row{
+    @extend .block-center;
+
+    @include respond-to('sm-up'){ max-width: 540px; }
+    @include respond-to('md-up'){ max-width: 720px; }
+    @include respond-to('lg-up'){
+        max-width: 960px;
+        display: inline-block;
+        float: none;
+        clear: both;
+    }
+    @include respond-to('xl-up'){ max-width: 1140px; }
+}
+
+// Mega sub menu link as title
+#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-item > a.mega-menu-link,
+#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu li.mega-menu-column > ul.mega-sub-menu > li.mega-menu-item > a.mega-menu-link{
+    font-family: $font-title;
+    font-size: 30px;
+    text-transform: initial;
+}
+
+// Columns 4/12
+#mega-menu-wrap-primary #mega-menu-primary li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-row > ul.mega-sub-menu > li.mega-menu-columns-4-of-12{
+    @include respond-to('lg-up'){
+        width: 30%;
+        padding-right: 3%;
+    }
+}
+
+// Menu item
+#mega-menu-wrap-primary #mega-menu-primary li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-row .mega-menu-column > ul.mega-sub-menu > li.mega-menu-item{
+    
+    // Menu item from core Wordpress menu
+    &[class*="mega-menu-item-type-post_type"]{
+        padding-bottom: 0;
+    }
+
+    // widget image
+    &.widget_media_image{
+        padding-bottom: 0;
+    }
+
+    // widget text
+    &.widget_text{
+        padding-top: 0;
+    }
+
+    // <p> in widget text
+    &.widget_text .textwidget > p:first-of-type{
+        margin-top: 0
+    }
+}
+
+
+// ----------------------------------------------------------------
+// GENERAL CONTENT
+// ----------------------------------------------------------------
+
+// All .*__list, remove list-style
+[class*="__list"]{
+    @extend .list-unstyled;
+}
+
+
+
+// ----------------------------------------------------------------
+// HEADER
+// ----------------------------------------------------------------
+
+
+// ----------------------------------------------------------------
+// FRONT-PAGE
+// ----------------------------------------------------------------
+
+
+
+
+// ----------------------------------------------------------------
+// MEDIA QUERIES
+// ----------------------------------------------------------------
+
+// ***********************************
+// *** @MEDIA IS IN SELECTOR *** => Check inc/mixins_and_helpers
+
+// //* ### MOBILE-FIRST ###
+// /* Bootstrap col-xs */
+// @media screen and (min-width: 480px){}
+
+// /* Bootstrap col-sm */
+// @media screen and (min-width: 768px){}
+
+// /* Bootstrap col-md */
+// @media screen and (min-width: 992px){}
+
+// /* Bootstrap col-lg */
+// @media screen and (min-width: 1200px){}

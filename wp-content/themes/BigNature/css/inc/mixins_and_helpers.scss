@@ -1,0 +1,153 @@
+// ----------------------------------------------------------------
+// UTILITIES CONFIG
+// ----------------------------------------------------------------
+
+// ----------------
+// Breakpoints zone
+// ----------------
+
+// Warning: you should use your own values, regardless of the devices
+// Best practice is Mobile First: (min-width: $breakpoint)
+// Breakpoints based on Bootstrap4
+$sm: 576px !default;
+$md: 768px !default;
+$lg: 992px !default;
+$xl: 1200px !default;
+
+
+// Additionnal "utility" breakpoints aliases
+$bp-aliases: (
+  'sm'     : (max-width: #{$sm - 1}),
+  'md'     : (max-width: #{$md - 1}),
+  'lg'     : (max-width: #{$lg - 1}),
+  'xl'     : (max-width: #{$xl - 1}),
+  'sm-up'  : (min-width: #{$sm}),
+  'md-up'  : (min-width: #{$md}),
+  'lg-up'  : (min-width: #{$lg}),
+  'xl-up'  : (min-width: #{$xl}),
+  'retina' : (min-resolution: 2dppx)
+);
+
+// Source : https://www.sitepoint.com/managing-responsive-breakpoints-sass/
+// Usage : @include respond-to("md-up"){...}
+@mixin respond-to( $name ) {
+  // If the key exists in the map
+  @if map-has-key($bp-aliases, $name) {
+    // Prints a media query based on the value
+    @media #{inspect(map-get($bp-aliases, $name))} {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}
+
+
+// ----------------------------------------------------------------
+// MIXINS
+// ----------------------------------------------------------------
+
+// Usage : grid(2, 15px)
+@mixin grid( $number:1, $gutter:0 ) {
+    display: grid;
+    grid-template-columns: repeat($number, 1fr);
+    grid-gap: $gutter;
+}
+
+// Usage : flex(center, center)
+@mixin flex( $justify: null, $align: null ) {
+    display: flex;
+
+    @if $justify { justify-content: $justify; }
+    @if $align { align-items: $align; }
+}
+
+// Size
+@mixin size( $width, $height ) {
+    width: $width;
+    height: $height;
+}
+
+// Max-size
+@mixin max-size( $width, $height ) {
+    max-width: $width;
+    max-height: $height;
+}
+
+
+// ----------------------------------------------------------------
+// HELPERS
+// ----------------------------------------------------------------
+
+// Hide the element
+// ---
+// Usage : .is-hidden-lg
+.is-hidden{
+    display: none !important;
+
+    // Mobile-first
+    &-sm{
+        @include respond-to('sm'){ display: none !important; }
+    }
+    &-md{
+        @include respond-to('md'){ display: none !important; }
+    }
+    &-lg{
+        @include respond-to('lg'){ display: none !important; }
+    }
+    &-xl{
+        @include respond-to('xl'){ display: none !important; }
+    }
+
+    // Graceful degradation
+    &-sm--up{
+        @include respond-to('sm-up'){ display: none !important; }
+    }
+    &-md--up{
+        @include respond-to('md-up'){ display: none !important; }
+    }
+    &-lg--up{
+        @include respond-to('lg-up'){ display: none !important; }
+    }
+    &-xl--up{
+        @include respond-to('xl-up'){ display: none !important; }
+    }  
+}
+
+// Screen-reader only
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+// Image sizes
+// ---
+.img-fit--cover{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    vertical-align: middle;
+}
+.img-fit--contain{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    vertical-align: middle;
+}
+.img-responsive{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
