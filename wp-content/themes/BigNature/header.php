@@ -13,12 +13,8 @@
 
 			<nav class="navbar" role="navigation">
   				<div class="container">
-					<div class="navbar__layout">					
-
-
+					<div class="navbar__layout">
 						
-
-
 					</div><!-- .navbar__layout -->
     			</div>
 			</nav>
