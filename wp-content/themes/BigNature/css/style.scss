@@ -922,7 +922,18 @@ body{
 // ----------------------------------------------------------------
 // FRONT-PAGE
 // ----------------------------------------------------------------
-
+.data{
+    &-section{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 40px;
+        align-items: center;
+    }
+    &-element{
+        text-align: center;
+    }
+}
 
 
 
@@ -943,5 +954,4 @@ body{
 // /* Bootstrap col-md */
 // @media screen and (min-width: 992px){}
 
-// /* Bootstrap col-lg */
-// @media screen and (min-width: 1200px){}
+// /*

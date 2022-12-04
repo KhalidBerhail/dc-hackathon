@@ -29,7 +29,7 @@ function devhackathon_scripts() {
   // AnimateOnScroll 
   wp_enqueue_style( 'aos-css' ,'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css', array(), '2.3.4');
   // Theme stylesheet.
-  wp_enqueue_style( 'style-css', get_template_directory_uri() . '/css/style.min.css', array(), filemtime(get_template_directory() . '/css/style.css') );
+  wp_enqueue_style( 'style-css', get_template_directory_uri() . '/css/style.css', array(), filemtime(get_template_directory() . '/css/style.css') );
   
   // Jquery 
   wp_enqueue_script( 'jquery-core' );
