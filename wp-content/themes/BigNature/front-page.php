@@ -27,7 +27,6 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 			foreach($list_prods as $prod):
 				$product = $prod['label'];
 				$url_fetch = $pre_url."&q=".urlencode($product)."&q_mode=simple";
-
 				$ch = curl_init();
 				
 				try {
