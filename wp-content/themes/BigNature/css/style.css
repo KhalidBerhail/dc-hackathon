@@ -2603,4 +2603,25 @@ body .newsletter-bloc .frm_style_style-formidable.with_frm_style .frm_submit .fr
 #mega-menu-wrap-primary #mega-menu-primary li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-row .mega-menu-column > ul.mega-sub-menu > li.mega-menu-item.widget_text .textwidget > p:first-of-type {
   margin-top: 0;
 }
+
+.data-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 40px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.data-element {
+  text-align: center;
+}
 /*# sourceMappingURL=style.css.map */
