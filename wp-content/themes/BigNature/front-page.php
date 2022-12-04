@@ -12,11 +12,6 @@ $metric = get_field('metric_a_afficher');
 
 $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/metric_agg?metric=avg&field=".urlencode($metric);
 
-
-
-
-
-
 ?>
 
 <div id="primary" class="content-area">
@@ -61,7 +56,10 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 					<div class="data-element">
 						<!--element-title-->
 						<h3 class="data-element__title"><?php echo $product?></h3>
-						<p class="data-element__metric"><?php echo $obj->metric;?></p>
+						<p class="data-element__metric">
+							<strong><?php echo $metric.":";?></strong>
+							<?php echo $obj->metric;?>
+						</p>
 					</div>
 		<?php
 				
