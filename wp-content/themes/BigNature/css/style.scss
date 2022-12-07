@@ -31,31 +31,19 @@ $font-title: 'DIN', 'Open Sans', 'system', sans-serif;
 
 
 // Colors declaration
-// NB: $tempete renamed to $grey
-$ocean--50: #E2EBF4;
-$ocean--500: #4076A6;
-$ocean--700: #213C59;
-$ocean--800: #111F2C;
-$tropique--50: #D8F9FD;
-$tropique--100: #A6C1DE;
-$tropique--700: #077B88;
-$tropique--800: #055861;
-$tropique--900: #03353A;
-$energy--50: #FFE7D6;
-$energy--100: #FFC499;
-$energy--300: #FF8833;
-$energy--500: #E35E01;
-$energy--700: #B84D00;
+$leaf-green:#41734C;
+$grass--green:#364D39;
+$cream:#F8F1E1;
+$pink:#E8C7CC;
+$yellow:#F9D567;
+$blue:#A7D9CD;
+$purple:#592C4F;
 
 $white: #ffffff;
-$grey--50: #E2E2DF;
-$grey--100: #C3C3C3;
-$grey--500: #55554E;
-$grey--600: #40403B;
 $black: #1E1E1C;
 
 // Semantic colors declaration
-$color-brand: $ocean--500;
+$color-brand: $pink;
 $color-base: $black;
 
 
@@ -73,6 +61,7 @@ html{
 }
 
 body{
+    background-color: $pink;
     max-width: 100%;
     font-family: $font-base;
     font-size: 16px;
@@ -114,10 +103,10 @@ p a{
 
 a{
     text-decoration: none;
-    color: $color-brand;
+    color: black;
 
     &:hover{
-        color: darken($color-brand, 10%);
+        color: darken(black, 10%);
     }
 }
 
@@ -210,13 +199,13 @@ img[class^='wp-image']{ height: auto; }
 // Text grey for light block (text more darker)
 %entry_content_text--light{
     p, ul, ol{
-        color: $grey--600;
+        color: $color-base;
     }
 }
 // Text grey for dark block (text more lighter)
 %entry_content_text--dark{
     p, ul, ol{
-        color: $grey--50;
+        color: $color-base;
     }
 }
 
@@ -322,7 +311,7 @@ img[class^='wp-image']{ height: auto; }
     @extend %btn;
     color: $color-base;
     border: 2px solid;
-    border-image: linear-gradient(302.98deg, #{$black} 12.8%, #{$ocean--500} 58.82%) 1;
+    //border-image: linear-gradient(302.98deg, #{$black} 12.8%, #{$ocean--500} 58.82%) 1;
 
     &:hover{
         color: $color-brand;
@@ -332,7 +321,7 @@ img[class^='wp-image']{ height: auto; }
     @extend %btn;
     color: $white;
     border: 2px solid;
-    border-image: linear-gradient(302.98deg, #{$white} 12.8%, #{$ocean--500} 58.82%) 1;
+    //border-image: linear-gradient(302.98deg, #{$white} 12.8%, #{$ocean--500} 58.82%) 1;
 
     &:hover{
         color: $white;
@@ -344,20 +333,16 @@ img[class^='wp-image']{ height: auto; }
     @extend %btn;
     padding: 0;
     padding-right: 40px;
-    color: $grey--600;
 
     &:hover{
-        color: $grey--600;
     }
 }
 
 // Scroll button (in footer.php)
 .scroll-btn{
     display: inline-block;
-    color: $grey--100;
 
     &:hover{
-        color: $grey--100;
 
         .scroll-btn__icon{
             transform: translateY(-10px);
@@ -431,7 +416,6 @@ img[class^='wp-image']{ height: auto; }
         position: absolute;
         top: 100%;
         left: 0;
-        border: 1px solid $grey--50;
     }
     &__link{
         width: 100%;
@@ -488,8 +472,6 @@ img[class^='wp-image']{ height: auto; }
 // ---
 
 .tags{
-    --tags-bcg: $ocean--700;
-    --tags-text: $white;
 
     &__list{
         display: flex;
@@ -538,7 +520,6 @@ img[class^='wp-image']{ height: auto; }
         position: relative;
         font-family: $font-title;
         font-size: 24px;
-        color: $grey--500;
         opacity: 0.8;
 
         @include respond-to('md-up'){
@@ -555,7 +536,6 @@ img[class^='wp-image']{ height: auto; }
             bottom: 5px;
             z-index: 0;
             border-radius: 50%;
-            background: $grey--500;
             opacity: 0;
         }
 
@@ -591,316 +571,12 @@ img[class^='wp-image']{ height: auto; }
 // PLUGINS
 // ----------------------------------------------------------------
 
-// FORMIDABLE
-// ---
 
-body{
-    // CSS vars
-    .with_frm_style{
-        --field-height: 45px;
-        --border-color: #{$color-brand};
-        --border-radius: 0;
-        --field-pad: 10px 15px;
-        --font: $font-base;
-        --font-size: 13px;
-    }
-
-    // Required
-    .with_frm_style .frm_required{
-        display: none;
-    }
-
-    // Buttons
-    .frm_style_style-formidable.with_frm_style .frm_submit button{
-        @extend .btn-primary;
-        border: none;
-    }
-
-
-    // NEWSLETTER variation
-    // ---
-    .newsletter-bloc{
-        // Fields container
-        .frm_fields_container{
-            align-items: center;
-        }
-
-        // Label
-        .frm_primary_label{
-            --label-color: $white;
-        }
-
-        // Input
-        .form-field{
-            grid-column: span 7 / span 1;
-        }
-
-        // Button
-        .frm_submit{
-            grid-column: span 5 / span 1;
-        }
-        .frm_style_style-formidable.with_frm_style .frm_submit .frm_button_submit{
-            @extend %btn;
-            background: transparent;
-            box-shadow: none;
-            color: $white;
-            border: 2px solid;
-            border-image: linear-gradient(302.98deg, #{$white} 12.8%, #{$ocean--500} 58.82%) 1;
-
-            &:hover{
-                color: $white;
-                opacity: 0.85;
-            }
-        }
-    }
-
-}
-
-
-// WPML
-// ---
-
-.wpml-ls{
-    width: max-content;
-    margin-left: auto; 
-    display: inline-block;
-    order: -1;
-
-    @include respond-to('md-up'){
-        margin-left: unset;        
-    }
-
-    @include respond-to('lg-up'){
-        order: initial;
-    }
-
-    ul{
-        @extend .list-unstyled;
-        margin: 0;
-    }
-
-    // Toggle
-    .wpml-ls-item-toggle{
-        height: 46px;
-        padding: 12px 10px;
-        background: transparent;
-    }
-
-    // Lang btn link native
-    .wpml-ls-native{
-        font-size: 18px;
-        line-height: 0.8;
-        color: $grey--600;
-        border-color: $grey--600;
-    }
-
-    // Chevron
-    &.wpml-ls-legacy-dropdown-click a.wpml-ls-item-toggle::after{
-        @include size(14px, 10px);
-        border: none;
-        background-image: url('../images/svg/icon-chevron-down--600.svg');
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-    }
-
-    // Flag
-    &.wpml-ls-legacy-dropdown-click .wpml-ls-flag{
-        margin-right: 5px;
-    }
-
-    // SUBMENU
-    &.wpml-ls-legacy-dropdown-click .wpml-ls-sub-menu a{
-        height: 46px;
-        padding: 12px 10px;
-    }
-}
 
 
 // MEGA MENU
 // ---
 
-// Toggle bar
-// #mega-menu-wrap-primary .mega-menu-toggle .mega-toggle-block-0 .mega-toggle-animated-inner,
-// #mega-menu-wrap-primary .mega-menu-toggle .mega-toggle-block-0 .mega-toggle-animated-inner::before,
-// #mega-menu-wrap-primary .mega-menu-toggle .mega-toggle-block-0 .mega-toggle-animated-inner::after{
-//     background: #40403B;
-//     border-radius: 0;
-// }
-
-// Megamenu mobile new design
-#mega-menu-wrap-primary{    
-    @include respond-to('lg'){
-        width: 100%;
-        height: 100vh;
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        background: linear-gradient(180deg, #{$white} 0%, #{$ocean--50} 100%);
-    }
-
-    &.is-active{
-        overflow-y: scroll;
-
-        .megamenu-toggle{
-            transform: rotateZ(180deg);
-        }
-    }
-}
-
-// Custom togglebar for Mobile menu
-.megamenu-toggle{
-    @include size(36px, 36px);
-    padding: 0;
-    display: block;    
-    background: 0;
-    border: none;
-    cursor: pointer;
-    transform-origin: center;
-    transform: rotateZ(0);
-    transition: transform 0.4s ease-in-out;
-
-    &.is-cross{
-        margin: 15px 15px 0 auto;
-        background-image: url('../images/svg/icon-cross.svg');
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-
-    &:hover{
-        opacity: 0.8;
-    }
-}
-
-// Mobile menu
-#mega-menu-wrap-primary .mega-menu-toggle + #mega-menu-primary{
-    padding: 45px 0;    
-    width: 100%;
-    min-height: calc(100% - 52px);
-    background: transparent;
-
-    @include respond-to('lg-up'){
-        width: auto;
-        min-height: unset;
-        padding: 0;
-    }
-}
-
-// Menu list item first level
-#mega-menu-wrap-primary #mega-menu-primary li.mega-menu-item{
-    padding: 12px 0;
-    
-    @include respond-to('lg-up'){
-        padding: 0;        
-    }
-}
-
-// Menu item open
-.mega-toggle-on .mega-menu-link::after{
-    transform: rotateZ(180deg);
-}
-
-// Menu Item link first level
-#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item > a.mega-menu-link,
-#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item.mega-current-menu-ancestor > a.mega-menu-link{
-    margin-top: 2vh;
-    margin-bottom: 2vh;
-    position: relative;
-    font-family: $font-title;
-    font-size: 26px;
-
-    &:after{
-        content: '';
-        @include size(20px, 20px);
-        display: block;
-        position: absolute;
-        top: calc(50% - 12px);
-        right: 15px;
-        z-index: 0;
-        background-image: url('../images/svg/icon-chevron-down--600.svg');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-        transform-origin: center;
-        // transform: rotateZ(0);
-        transition: transform 0.3s ease-in-out;
-
-        @include respond-to('lg-up'){
-            display: none;
-        }
-    }
-
-    @include respond-to('lg-up'){
-        margin-top: 0;
-        margin-bottom: 0;
-        font-size: 24px;
-    }
-}
-
-// Mega sub menu -> center child
-#mega-menu-wrap-primary #mega-menu-primary[data-effect="fade_up"] li.mega-menu-item.mega-menu-megamenu > ul.mega-sub-menu{
-    @include respond-to('lg-up'){
-        text-align: center;
-    }
-}
-
-
-// Mega sub menu row  == width as .container
-#mega-menu-wrap-primary #mega-menu-primary li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-row{
-    @extend .block-center;
-
-    @include respond-to('sm-up'){ max-width: 540px; }
-    @include respond-to('md-up'){ max-width: 720px; }
-    @include respond-to('lg-up'){
-        max-width: 960px;
-        display: inline-block;
-        float: none;
-        clear: both;
-    }
-    @include respond-to('xl-up'){ max-width: 1140px; }
-}
-
-// Mega sub menu link as title
-#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-item > a.mega-menu-link,
-#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu li.mega-menu-column > ul.mega-sub-menu > li.mega-menu-item > a.mega-menu-link{
-    font-family: $font-title;
-    font-size: 30px;
-    text-transform: initial;
-}
-
-// Columns 4/12
-#mega-menu-wrap-primary #mega-menu-primary li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-row > ul.mega-sub-menu > li.mega-menu-columns-4-of-12{
-    @include respond-to('lg-up'){
-        width: 30%;
-        padding-right: 3%;
-    }
-}
-
-// Menu item
-#mega-menu-wrap-primary #mega-menu-primary li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-row .mega-menu-column > ul.mega-sub-menu > li.mega-menu-item{
-    
-    // Menu item from core Wordpress menu
-    &[class*="mega-menu-item-type-post_type"]{
-        padding-bottom: 0;
-    }
-
-    // widget image
-    &.widget_media_image{
-        padding-bottom: 0;
-    }
-
-    // widget text
-    &.widget_text{
-        padding-top: 0;
-    }
-
-    // <p> in widget text
-    &.widget_text .textwidget > p:first-of-type{
-        margin-top: 0
-    }
-}
 
 
 // ----------------------------------------------------------------
@@ -917,7 +593,34 @@ body{
 // ----------------------------------------------------------------
 // HEADER
 // ----------------------------------------------------------------
-
+.navbar{
+    background-color: $pink;
+    position: fixed;
+    width: 100%;
+    color: black;
+    z-index: 1000;
+    top: 0;
+    padding: 0px 20px;
+    position: relative;
+    &-nav{
+        list-style: none;
+        display: flex;
+        gap: 30px;
+        margin-block: 0px;
+        padding-block: 25px;
+    }
+    .donate-button{
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 15px 30px;
+        background-color: $grass--green;
+        border-radius: 0px 0px 0px 20px;
+        a{
+            color: white;
+        }
+    }
+}
 
 // ----------------------------------------------------------------
 // FRONT-PAGE
