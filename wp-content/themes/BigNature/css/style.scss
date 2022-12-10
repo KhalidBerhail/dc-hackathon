@@ -34,7 +34,8 @@ $font-title: 'DIN', 'Open Sans', 'system', sans-serif;
 $leaf-green:#41734C;
 $grass--green:#364D39;
 $cream:#F8F1E1;
-$pink:#E8C7CC;
+$pink:#F8F1E1;
+$pink--ice:#E8C7CC;
 $yellow:#F9D567;
 $blue:#A7D9CD;
 $purple:#592C4F;
@@ -477,7 +478,6 @@ img[class^='wp-image']{ height: auto; }
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
-
         @include respond-to('md'){
             flex-direction: column;
         }
@@ -625,6 +625,44 @@ img[class^='wp-image']{ height: auto; }
 // ----------------------------------------------------------------
 // FRONT-PAGE
 // ----------------------------------------------------------------
+
+//HERO section
+.hero{
+    &-section{
+        &__title{
+            text-align: center;
+            font-size: 60px;
+        }
+        .title-particle{
+            &-1{
+                color: white;
+            }
+            &-2{
+                color: $grass--green
+            }
+            &-3{
+                color: white;
+            }
+            &-4{
+                color: $pink--ice;
+            }
+            &-5{
+                color: white;
+            }
+            &-6{
+                color: $yellow;
+            }
+            &-7{
+                color: white;
+            }
+            &-8{
+                color: $leaf-green;
+            }
+        }
+    }
+}
+
+//DATA section
 .data{
     &-section{
         display: flex;
@@ -638,23 +676,111 @@ img[class^='wp-image']{ height: auto; }
     }
 }
 
+//Agenda sections
+.agenda{
+    &-section{
+        background-color:$leaf-green;
+        border-radius: 25px;
+    }
+    
+    &-list{
+        margin-bottom: 40px;
+        @include respond-to('md-up'){
+            margin-bottom: unset;
+        }
+    }
+
+    &-container{
+        padding-block: 40px;
+        @include respond-to('md-up'){
+            display: grid;
+            grid-template-columns: 50% auto;
+            padding-block: 120px;
+            margin-bottom: unset;
+        }
+    }
+
+    &-title{
+        font-size: 60px;
+        color: $yellow;
+        height: fit-content;
+        transform-origin: top left;
+        width: fit-content;
+        font-size: 70px;
+        margin-bottom: 40px;
+        @include respond-to('md-up'){
+            padding-block: 120px;
+            transform: rotate(-90deg) translateX(-100%);
+            margin: 0px;
+            line-height: 0.7em;
+        }
+    }
+
+    &-event{
+        display: grid;
+        grid-template-columns: 20% auto;
+        margin-bottom: 20px;
+        &__date{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            p{
+                margin: 0px;
+                color:$yellow;
+                font-weight: bold;
+                text-align: center;
+                &:nth-child(1){
+                    font-size: 50px;
+                    line-height: 0.5;
+                    @include respond-to('md-up'){
+                        font-size: 60px;
+                    }
+                }
+                &:nth-child(2){
+                    font-size: 25px;
+                    @include respond-to('md-up'){
+                        font-size: 32px;
+                    }
+                }
+            }
+        }
+        &__details{
+            h3{
+                color:$pink--ice;
+                margin-bottom: 5px;
+                margin-top: 0px;
+            }
+            p{
+                margin: 0px;
+                color:$white;
+                margin-bottom: 0px;
+                font-size: 18px;
+                @include respond-to('md-up'){
+                    font-size: 20px;
+                }
+            }
+            span{
+                margin: 0px;
+                color: $pink--ice;
+                font-size: 12px;
+            }
+        }
+        &::after{
+            content:"";
+            display: block;
+            width:290%;
+            height:1px;
+            background-color:$pink--ice;
+        }
+    }
+
+    &-cta{
+        color:$pink--ice;
+        margin-top: 40px;
+    }
+}
 
 
-// ----------------------------------------------------------------
-// MEDIA QUERIES
-// ----------------------------------------------------------------
 
-// ***********************************
-// *** @MEDIA IS IN SELECTOR *** => Check inc/mixins_and_helpers
 
-// //* ### MOBILE-FIRST ###
-// /* Bootstrap col-xs */
-// @media screen and (min-width: 480px){}
-
-// /* Bootstrap col-sm */
-// @media screen and (min-width: 768px){}
-
-// /* Bootstrap col-md */
-// @media screen and (min-width: 992px){}
-
-// /*
+//------------------------------------MATHEO MODIFS----------------------------------------------------//

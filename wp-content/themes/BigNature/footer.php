@@ -3,8 +3,11 @@
 	<footer id="site-footer" class="site-footer">
 
 		<div class="site-footer__content">
-			<div class="container">
-
+			<div class="site-footer__img">
+				<img src="" alt="">
+			</div>
+			<div class="site-footer__socials">
+				
 			</div>
 		</div>
 

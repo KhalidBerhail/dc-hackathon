@@ -1,6 +1,9 @@
-<?php get_header(); 
+<?php 
+/*
+    Template Name: Matheo-Front
+*/
 
-
+get_header(); 
 
 
 //Construction of Api call URL
