@@ -2274,6 +2274,11 @@ img[class^='wp-image'] {
           transform: rotateZ(-90deg);
 }
 
+section {
+  position: relative !important;
+  z-index: 4 !important;
+}
+
 .navbar {
   background-color: #F8F1E1;
   position: fixed;
@@ -2864,11 +2869,16 @@ img[class^='wp-image'] {
   grid-column: 2 / 3;
   -ms-grid-row: 3;
   grid-row: 3;
-  -ms-grid-column-align: center;
-      justify-self: center;
+  justify-self: center;
   -ms-flex-item-align: end;
-      -ms-grid-row-align: end;
       align-self: end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .site-footer-wrapped-nine {
@@ -2892,6 +2902,29 @@ img[class^='wp-image'] {
 
 .site-footer-logo {
   width: 250px;
+}
+
+.site-footer__link {
+  width: 40px;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: wheat;
+}
+
+.site-footer__link i {
+  font-size: 30px;
+}
+
+.site-footer__link:hover {
+  color: #F9D567;
 }
 
 .ourtrees-section {

@@ -17,7 +17,7 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 <div id="primary" class="content-area">
 	<div id="content" class="site-content">
 
-		<div id="hero-section" class="hero-section">
+		<section id="hero-section" class="hero-section">
 			<h1 class="hero-section__title container">
 				<span class="title-particle-1 title-particle">Nous sommes</span>
 				<span class="title-particle-2 title-particle">BIG ensemble</span>
@@ -28,7 +28,7 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 				<span class="title-particle-7 title-particle">sur la</span>
 				<span class="title-particle-8 title-particle">société et l'environnement</span>
 			</h1>
-		</div><!-- #hero-section -->
+		</section><!-- #hero-section -->
 
 		<!--<div class="data-section">
 			<?php
@@ -193,9 +193,9 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 				</div>
 				<!--/Horizontal section panels-->
       		</div>
-    	</div>
+		</div>
 
-		<div class="agenda-section agenda">
+		<section class="agenda-section agenda">
 			<div class="agenda-container container">
 			<h2 class="agenda-title">Agenda</h2>
 			<div class="agenda-list">
@@ -237,7 +237,61 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 				</div>
 				<a class="agenda-cta" href="">tous les événements <i class="fa-solid fa-turn-up"></i> </a>
 			</div>
-		</div>
+		</section>
+
+		<!-- -------------- OUR TREES --------------  -->
+		
+		<section class="ourtrees-section ourtrees">
+			<div class="ourtrees-forest">
+				<div class="ourtrees-tree">
+					<div class="ourtrees-title">
+						<div class="ourtrees-highlight"> </div>
+						<span class="ourtrees-text">nos arbres <br/>en france</span>
+					</div>
+				</div>
+			</div>
+			<div class="ourtrees-map">
+				<img class="ourtrees-carte" src="<?php echo get_template_directory_uri();?>/images/png/carte.png" alt="foret"" alt="Carte de France">
+				<div class="ourtrees-legend">
+					<div class="ourtrees-legend-container">
+						<img class="ourtrees-legend-leaf" src="<?php echo get_template_directory_uri();?>/images/png/white_leaf.png" alt="feuille blanche">
+						<span class="ourtrees-legend-text">arbres plantés</span>
+					</div>
+					<div class="ourtrees-legend-container">
+						<img class="ourtrees-legend-leaf" src="<?php echo get_template_directory_uri();?>/images/png/green_leaf.png" alt="feuille verte">
+						<span class="ourtrees-legend-text">future plantation</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- -------------- JOIN US --------------  -->
+		<section class="joinus-section joinus">
+			<div class="joinus-box">
+				<div class="joinus-box-one">
+						<img class="site-footer-illustration mobile-ble" src="<?php echo get_template_directory_uri();?>/images/png/ble.png" alt="blé">
+						<img class="site-footer-illustration mobile-ble" src="<?php echo get_template_directory_uri();?>/images/png/ble.png" alt="blé">
+						<img class="site-footer-illustration" src="<?php echo get_template_directory_uri();?>/images/png/ble.png" alt="blé">
+						<img class="site-footer-illustration mobile-ble" src="<?php echo get_template_directory_uri();?>/images/png/ble.png" alt="blé">
+					</div>
+				</div>
+				
+				<div class="joinus-box-two">
+					<img class="site-footer-illustration mobile-ble" src="<?php echo get_template_directory_uri();?>/images/png/ble.png" alt="blé">
+					<div>
+						<div class="joinus-highlight"> </div>
+						<div class="joinus-text">rejoignez-nous !</div>
+					</div>
+					<img class="site-footer-illustration mobile-ble" src="<?php echo get_template_directory_uri();?>/images/png/ble.png" alt="blé">
+				</div>
+
+				<div class="joinus-box-three">
+					<button class="joinus-button">
+						devenir membre
+					</button>
+				</div>
+			</div>
+		</section>
 
 	</div><!-- #content -->
 </div><!-- #primary -->

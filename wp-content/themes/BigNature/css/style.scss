@@ -590,7 +590,10 @@ img[class^='wp-image']{ height: auto; }
     @extend .list-unstyled;
 }
 
-
+section{
+    position: relative !important;
+    z-index: 4 !important;
+}
 
 // ----------------------------------------------------------------
 // HEADER
@@ -1062,6 +1065,9 @@ img[class^='wp-image']{ height: auto; }
         grid-row: 3;
         justify-self: center;
         align-self: end;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
     }
 
     &-wrapped-nine {
@@ -1077,6 +1083,21 @@ img[class^='wp-image']{ height: auto; }
 
     &-logo {
         width: 250px;
+    }
+
+    &__link {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: wheat;
+        i{
+            font-size: 30px;
+        }
+        &:hover{
+            color: $yellow;
+        }
     }
 }
 
