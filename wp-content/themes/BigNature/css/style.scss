@@ -33,12 +33,12 @@ $font-title: 'DIN', 'Open Sans', 'system', sans-serif;
 // Colors declaration
 $leaf-green:#41734C;
 $grass--green:#364D39;
-$cream:#F8F1E1;
 $pink:#F8F1E1;
 $pink--ice:#E8C7CC;
 $yellow:#F9D567;
 $blue:#A7D9CD;
 $purple:#592C4F;
+$forest: #1E4246;
 
 $white: #ffffff;
 $black: #1E1E1C;
@@ -784,3 +784,298 @@ img[class^='wp-image']{ height: auto; }
 
 
 //------------------------------------MATHEO MODIFS----------------------------------------------------//
+
+// ----------------------------------------------------------------
+// FOOTER
+// ----------------------------------------------------------------
+.site-footer{
+    &-section{
+        background-color:$leaf-green;
+        border-radius: 25px;
+    }
+
+    &-illustration{
+        width: 100px;
+    }
+
+    &-wrapper{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, auto);
+        grid-gap: 10px;
+        padding: 40px;
+    }
+
+    // Ligne 1
+    &-wrapped-one {
+        display: none;
+        @include respond-to('md-up'){
+            display: block;
+            grid-column: 1 / 2;
+            grid-row: 1;
+            justify-self: center;
+            align-self: center;
+        }
+    }
+
+    &-wrapped-two {
+        grid-column: 2 / 3;
+        grid-row: 1;
+        justify-self: center;
+        align-self: center;
+    }
+
+    &-wrapped-three {
+        display: none;
+        @include respond-to('md-up'){
+            display: block;
+            grid-column: 3 / 3;
+            grid-row: 1;
+            justify-self: center;
+            align-self: center;
+        }
+    }
+
+    // Ligne 2
+    &-wrapped-four {
+        display: none;
+        @include respond-to('md-up'){
+            display: block;
+            grid-column: 1 / 2;
+            grid-row: 2;
+            justify-self: end;
+            align-self: center;
+        }
+    }
+
+    &-wrapped-five {
+        grid-column: 2 / 3;
+        grid-row: 2;
+        justify-self: center;
+        align-self: center;
+    }
+
+    &-wrapped-six {
+        display: none;
+        @include respond-to('md-up'){
+            display: block;
+            grid-column: 3 / 3;
+            grid-row: 2;
+            justify-self: start;
+            align-self: center;
+        }
+    }
+
+    // Ligne 3
+    &-wrapped-seven {
+        display: none;
+        @include respond-to('md-up'){
+            display: block;
+            grid-column: 1 / 2;
+            grid-row: 3;
+            justify-self: center;
+            align-self: center;
+        }
+    }
+    
+    &-wrapped-eight {
+        grid-column: 2 / 3;
+        grid-row: 3;
+        justify-self: center;
+        align-self: end;
+    }
+
+    &-wrapped-nine {
+        display: none;
+        @include respond-to('md-up'){
+            display: block;
+            grid-column: 3 / 3;
+            grid-row: 3;
+            justify-self: center;
+            align-self: center;
+        }
+    }
+
+    &-logo {
+        width: 250px;
+    }
+}
+
+// ----------------------------------------------------------------
+// OUR TREES
+// ----------------------------------------------------------------
+
+.ourtrees {
+    &-section {
+        flex-direction: column;
+        @include respond-to('md-up'){
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    &-forest {
+        width: 100vw;
+        height: 600px;
+        @include respond-to('md-up'){
+            width: 50vw;
+        }
+        
+    }
+
+    &-tree {
+        width: 100%;
+        height: 100%;
+        background-image: url("../images/jpg/foret.jpg");
+    } 
+
+    &-title {
+        padding: 50px;
+    }
+
+    &-highlight {
+        width: 280px;
+        height: 60px;
+        background: $pink--ice;
+        transform: rotate(-3deg);
+        border-radius: 10px;
+        position: absolute;
+    }
+
+    &-text {
+        font-size: 4em;
+        color: $white;
+        position: relative;
+    }
+
+    &-map {
+        width: 100vw;
+        background-color: $yellow;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 600px;
+        @include respond-to('md-up'){
+            width: 50vw;
+        }
+    }
+
+    &-carte {
+        max-width: 60%;
+        @include respond-to('md-up') {
+            max-width: 80%;
+        }
+    }
+
+    &-legend {
+        flex-direction: column;
+        @include respond-to('md-up') {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+        }
+    }
+
+    &-legend-container {
+        display: flex;
+        align-items: center;
+        margin: 30px;
+    }
+
+
+    &-legend-leaf{
+        width : 30px;
+        margin-right: 20px;
+    }
+
+    &-legend-text{
+        font-size: 20px;
+        color: $pink;
+    }
+
+
+}
+
+
+
+
+// ----------------------------------------------------------------
+// JOIN US
+// ----------------------------------------------------------------
+
+.joinus {
+    &-section{
+        background-color: $pink--ice;
+        border-radius: 25px;
+        padding: 40px;
+    }
+
+    &-box {
+       display: flex;
+       flex-direction: column;
+    }
+
+    &-box-one {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include respond-to('md-up') {
+            justify-content: space-between;
+        }
+    }
+
+    &-box-two {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 40px 0;
+        @include respond-to('md-up') {
+            margin: 0 0;
+        }
+    }
+
+    &-highlight {
+        position: absolute;
+        z-index: 1;
+        width: 180px;
+        height: 60px;
+        background: $yellow;
+        transform: rotate(-5deg);
+        border-radius: 10px;
+        margin-left: 20px;
+    }
+
+    &-text{
+        font-size: 2.5em;
+        color: $forest;
+        position: relative;
+        z-index: 10;
+    }
+
+    &-box-three {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &-button {
+        background-color:$forest;
+        color: white;
+        border: none;
+        border-radius: 50px;
+        padding: 15px 30px;
+    }
+
+    .mobile-ble {
+        display: none;
+        @include respond-to('md-up') {
+            display: block;
+        }
+    }
+
+}

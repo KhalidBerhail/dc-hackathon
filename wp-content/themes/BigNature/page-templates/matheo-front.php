@@ -130,7 +130,65 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 			</div>
 		</div>
 
+		<!-- ---------------------------- Matheo ---------------------------- -->
+		 
+		<!-- -------------- OUR TREES --------------  -->
+		
+		<div class="ourtrees-section ourtrees">
+			<div class="ourtrees-forest">
+				<div class="ourtrees-tree">
+					<div class="ourtrees-title">
+						<div class="ourtrees-highlight"> </div>
+						<span class="ourtrees-text">nos arbres <br/>en france</span>
+					</div>
+				</div>
+			</div>
+			<div class="ourtrees-map">
+				<img class="ourtrees-carte" src="<?php echo get_template_directory_uri();?>/images/png/carte.png" alt="foret"" alt="Carte de France">
+				<div class="ourtrees-legend">
+					<div class="ourtrees-legend-container">
+						<img class="ourtrees-legend-leaf" src="<?php echo get_template_directory_uri();?>/images/png/white_leaf.png" alt="feuille blanche">
+						<span class="ourtrees-legend-text">arbres plantés</span>
+					</div>
+					<div class="ourtrees-legend-container">
+						<img class="ourtrees-legend-leaf" src="<?php echo get_template_directory_uri();?>/images/png/green_leaf.png" alt="feuille verte">
+						<span class="ourtrees-legend-text">future plantation</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- -------------- JOIN US --------------  -->
+		<div class="joinus-section joinus">
+			<div class="joinus-box">
+				<div class="joinus-box-one">
+						<img class="site-footer-illustration mobile-ble" src="<?php echo get_template_directory_uri();?>/images/png/ble.png" alt="blé">
+						<img class="site-footer-illustration mobile-ble" src="<?php echo get_template_directory_uri();?>/images/png/ble.png" alt="blé">
+						<img class="site-footer-illustration" src="<?php echo get_template_directory_uri();?>/images/png/ble.png" alt="blé">
+						<img class="site-footer-illustration mobile-ble" src="<?php echo get_template_directory_uri();?>/images/png/ble.png" alt="blé">
+					</div>
+				</div>
+				
+				<div class="joinus-box-two">
+					<img class="site-footer-illustration mobile-ble" src="<?php echo get_template_directory_uri();?>/images/png/ble.png" alt="blé">
+					<div>
+						<div class="joinus-highlight"> </div>
+						<div class="joinus-text">rejoignez-nous !</div>
+					</div>
+					<img class="site-footer-illustration mobile-ble" src="<?php echo get_template_directory_uri();?>/images/png/ble.png" alt="blé">
+				</div>
+
+				<div class="joinus-box-three">
+					<button class="joinus-button">
+						devenir membre
+					</button>
+				</div>
+			</div>
+		</div>
+
 	</div><!-- #content -->
 </div><!-- #primary -->
+
+
     
 <?php get_footer();
