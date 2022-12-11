@@ -9,30 +9,32 @@
 // ** @font-face **
 
 @font-face{
-    font-family: system;
+    /*//font-family: system;
     font-style: normal;
     font-weight: 300;
-    src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"), local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"), local("Roboto-Light"), local("DroidSans"), local("Tahoma");
+    src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"), local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"), local("Roboto-Light"), local("DroidSans"), local("Tahoma");*/
 }
 
 // DIN
 @font-face {
-    font-family: 'DIN';
+    /*//font-family: 'DIN';
     src: url('../fonts/DIN/DINCondensed-Bold.woff2') format('woff2'),
     url('../fonts/DIN/DINCondensed-Bold.woff') format('woff'),
     url('../fonts/DIN/DINCondensed-Bold.ttf') format('truetype');
     font-weight: bold;
-    font-style: normal;
+    font-style: normal;*/
 }
 
 // Fonts declaration
 $font-base: 'Open Sans', 'system', sans-serif;
-$font-title: 'DIN', 'Open Sans', 'system', sans-serif;
+//$font-title: 'DIN', 'Open Sans', 'system', sans-serif;
 
 
 // Colors declaration
 $leaf-green:#41734C;
 $grass--green:#364D39;
+$dark-green:#3A694A;
+$cream:#F8F1E1;
 $pink:#F8F1E1;
 $pink--ice:#E8C7CC;
 $yellow:#F9D567;
@@ -64,7 +66,7 @@ html{
 body{
     background-color: $pink;
     max-width: 100%;
-    font-family: $font-base;
+    //font-family: $font-base;
     font-size: 16px;
     color: $color-base;
     line-height: 1.4;
@@ -76,7 +78,7 @@ body{
 }
 
 h1, .h1{
-    font-family: $font-title;
+    //font-family: $font-title;
     font-size: 32px;
     line-height: 1.2;
 
@@ -86,13 +88,13 @@ h1, .h1{
 }
 
 h2, .h2{
-    font-family: $font-title;
+    //font-family: $font-title;
     font-size: 32px;
     line-height: 1.2;
 }
 
 h3, .h3{
-    font-family: $font-title;
+    //font-family: $font-title;
     font-size: 24px;
     line-height: 1.2;
 }
@@ -218,7 +220,7 @@ img[class^='wp-image']{ height: auto; }
     padding: 10px 30px 6px;
     display: inline-block;
     border-radius: 0;
-    font-family: $font-title;
+    //font-family: $font-title;
     font-size: 20px;
     text-transform: uppercase;
     text-align: center;
@@ -391,7 +393,7 @@ img[class^='wp-image']{ height: auto; }
         padding: 15px;
         position: relative;       
         background: transparent;
-        font-family: $font-title;
+        //font-family: $font-title;
         color: $white;
         border: 1px solid $white;
         font-size: 20px;
@@ -487,7 +489,7 @@ img[class^='wp-image']{ height: auto; }
         padding: 5px 15px;
         background: var(--tags-bcg);
         color: var(--tags-text);
-        font-family: $font-title;
+        //font-family: $font-title;
         
         @include respond-to('md'){
             padding: 5px 25px;
@@ -518,7 +520,7 @@ img[class^='wp-image']{ height: auto; }
         padding: 2px 15px;
         display: inline-block;
         position: relative;
-        font-family: $font-title;
+        //font-family: $font-title;
         font-size: 24px;
         opacity: 0.8;
 
@@ -629,6 +631,11 @@ img[class^='wp-image']{ height: auto; }
 //HERO section
 .hero{
     &-section{
+        background-color: $cream;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        padding-block: 80px;
         &__title{
             text-align: center;
             font-size: 60px;
@@ -659,6 +666,7 @@ img[class^='wp-image']{ height: auto; }
                 color: $leaf-green;
             }
         }
+        
     }
 }
 
@@ -681,6 +689,8 @@ img[class^='wp-image']{ height: auto; }
     &-section{
         background-color:$leaf-green;
         border-radius: 25px;
+        position: relative;
+        z-index: 3;
     }
     
     &-list{
@@ -709,7 +719,6 @@ img[class^='wp-image']{ height: auto; }
         font-size: 70px;
         margin-bottom: 40px;
         @include respond-to('md-up'){
-            padding-block: 120px;
             transform: rotate(-90deg) translateX(-100%);
             margin: 0px;
             line-height: 0.7em;
@@ -718,8 +727,10 @@ img[class^='wp-image']{ height: auto; }
 
     &-event{
         display: grid;
-        grid-template-columns: 20% auto;
-        margin-bottom: 20px;
+        grid-template-columns: 80px auto;
+        gap: 15px;
+        padding-top: 20px;
+        position: relative;
         &__date{
             display: flex;
             flex-direction: column;
@@ -728,7 +739,6 @@ img[class^='wp-image']{ height: auto; }
                 margin: 0px;
                 color:$yellow;
                 font-weight: bold;
-                text-align: center;
                 &:nth-child(1){
                     font-size: 50px;
                     line-height: 0.5;
@@ -768,16 +778,183 @@ img[class^='wp-image']{ height: auto; }
         &::after{
             content:"";
             display: block;
-            width:290%;
+            width:70%;
             height:1px;
             background-color:$pink--ice;
+            position: absolute;
+            bottom: 0;
+            transition: all 0.5s;
+        }
+
+        &:hover{
+            cursor: pointer;
+            background-color: rgba(255,255,255,0.1);
+            &::after{
+                width: 100%;
+            }
         }
     }
 
     &-cta{
         color:$pink--ice;
         margin-top: 40px;
+        position: relative;
+        width:fit-content;
+        &:hover{
+            color: $yellow;
+        }
+        i{
+            transform: rotate(180deg) rotateY(180deg);
+            font-size: 11px;
+            top: 0px;
+            position: absolute;
+            right: -10px;
+        }
     }
+}
+
+.engagement{
+    &-section{
+        padding-top: 80px;
+        background-color: $cream;
+        border-radius: 25px;
+        position: relative;
+        padding-bottom: 180px;
+        .pin-spacer{
+            z-index: 2 !important;
+        }
+    }
+    &-intro{
+        position: fixed;
+        top: 0;
+        z-index: 2;
+        max-width: 300px;
+        z-index: 1;
+        padding-top: 120px;
+        &__title{
+            color: $dark-green;
+            font-size: 60px;
+        }
+        &__text{
+            color: $dark-green;
+        }
+        &__date{
+            color: $dark-green;
+            text-align: right;
+            display: flex;
+            justify-content: end;
+            font-size: 40px;
+            font-weight: bold;
+            width: 100%
+        }
+    }
+    &-back{
+        &__img{
+            position: absolute;
+            top: 0;
+            z-index: -1;
+            left: -130px;
+            svg{
+                width: 400px;
+                height: fit-content;
+            }
+        }
+    }
+}
+
+.horizontal{
+    &-container{
+        
+    }
+    &-scroll{
+        display:flex;
+        flex-direction:row;
+        flex-wrap: nowrap;
+        gap:20px;
+        overflow-x: scroll;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 150px;
+        &__item{
+            min-width: 180px !important;
+            height: 120px;
+            display: block;
+            width: 120px;
+            height: 250px;
+            img{ 
+                width:100%;
+                height:100%;
+                object-fit: contain;
+            }
+        }
+    }
+}
+
+
+
+
+//SCROLL TESTS
+/* Most of these styles could be removed but are for the demo to look better */
+
+
+#panels{
+    display:grid;
+    grid-template-columns: 30% auto;
+}
+#panels #panels-container {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  padding: 0;
+  overflow: hidden;
+  background-color: transparent;
+  align-items: center;
+  margin-left: 40px !important;
+}
+#panels #panels-container .panel {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #333;
+  text-align: left;
+  border-right: 1px solid #f00;
+  background-color: transparent;
+}
+#panels #panels-container .panel img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+#panels #panels-container .panel .panels-navigation {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+#panels #panels-container .panel .anchor-panel,
+#panels #panels-container .panel .nav-panel {
+  color: #000;
+  text-transform: uppercase;
+  margin-right: 2rem;
+}
+#panels #panels-container .panels-navigation {
+  position: absolute;
+  width: 100%;
+  bottom: 2rem;
+  right: 2rem;
 }
 
 
@@ -789,6 +966,8 @@ img[class^='wp-image']{ height: auto; }
 // FOOTER
 // ----------------------------------------------------------------
 .site-footer{
+    position: relative;
+    z-index: 2;
     &-section{
         background-color:$leaf-green;
         border-radius: 25px;
