@@ -1771,12 +1771,10 @@ template {
 }
 
 @font-face {
-  /*//font-family: 'DIN';
-    src: url('../fonts/DIN/DINCondensed-Bold.woff2') format('woff2'),
-    url('../fonts/DIN/DINCondensed-Bold.woff') format('woff'),
-    url('../fonts/DIN/DINCondensed-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;*/
+  font-family: 'FoundersGrotesk';
+  src: url("../fonts/FoundersGrotesk-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
 }
 
 *, *::before, *::after {
@@ -1791,6 +1789,7 @@ html {
 body {
   background-color: #F8F1E1;
   max-width: 100%;
+  font-family: "Open Sans", "system", sans-serif;
   font-size: 16px;
   color: #1E1E1C;
   line-height: 1.4;
