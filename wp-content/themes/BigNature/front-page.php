@@ -20,16 +20,100 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 		<section id="hero-section" class="hero-section">
 			<h1 class="hero-section__title container">
 				<span class="title-particle-1 title-particle">Nous sommes</span>
-				<span class="title-particle-2 title-particle">BIG ensemble</span>
+				<span class="title-particle-2 title-particle can-expand">
+					BIG ensemble
+					<span class="title-particle-2-expand expand"></span>
+				</span>
+				
 				<span class="title-particle-3 title-particle">une association qui mobilise</span>
-				<span class="title-particle-4 title-particle">la force du collectif</span>
+				<span class="title-particle-4 title-particle">
+					la <span class="scale-up">force</span> 
+				</span>
+				<span class="title-particle-4 title-particle">
+				du <span class="scale-up">collectif</span><i class="fa-solid fa-heart"></i>
+					<span class="title-particle-4-expand expand">
+
+						<div class="expand-content">
+							<p>
+								<span class="text-green">ensemble</span>, nous sommes plus
+								<span class="text-red">fort.</span>
+							</p>
+
+							<div class="expand-img">
+								<img src="<?php echo get_template_directory_uri();?>/images/png/humans-standing.png" alt="">
+							</div>
+						</div>
+						
+					</span>
+				</span>
 				<span class="title-particle-5 title-particle">pour un</span>
-				<span class="title-particle-6 title-particle">impact a grande échelle</span>
+				<span class="title-particle-6 title-particle"><span class="scale-up">impact</span> a grande échelle</span>
 				<span class="title-particle-7 title-particle">sur la</span>
-				<span class="title-particle-8 title-particle">société et l'environnement</span>
+				<span class="title-particle-8 title-particle">
+					 
+					<span class="particle-earth">
+						société
+						<i class="fa-solid fa-earth-americas"></i>
+					</span>
+					<span class="particle-rainbow">et l'environnement <i class="fa-solid fa-rainbow"></i> .</span>
+				</span>
 			</h1>
 		</section><!-- #hero-section -->
 
+		<section id="data-section" class="data-section">
+			<div class="data-section-header data-header">
+				
+					<?php 
+						$data_title = get_field('titre_section_projet');
+						if($data_title) :
+					?>
+						<h2 class="data-header__title">	
+							<?php echo $data_title; ?>
+						</h2>
+					<?php
+						endif;
+					?>
+				
+				<span class="data-header__rec"></span>
+			</div>
+
+			<div class="data-section-content container">
+				<?php 
+					$data_logo = get_field('logo_section_projet');
+					if($data_logo) :
+				?>
+						<div class="data-content__logo">
+							<img src="<?php echo esc_url($data_logo['url']); ?>" >
+						</div>
+				<?php
+					endif;
+				?>
+
+				<?php 
+					$data_intro = get_field('contenu_intro_projet');
+					if($data_intro) :
+				?>
+						<div class="data-content__intro">
+							<?php echo $data_intro; ?>
+						</div>
+				<?php
+					endif;
+				?>
+				<div class="data-content__stats"></div>
+				
+			</div>
+			
+			<?php 
+				$data_image = get_field('image_section_projet');
+				if($data_image) :
+			?>
+					<div class="data-section__tree">
+						<img src="<?php echo $data_image['url'];?>" alt="">
+					</div>
+			<?php
+				endif;
+			?>
+		</section>
 		<!--<div class="data-section">
 			<?php
 				foreach($list_prods as $prod):

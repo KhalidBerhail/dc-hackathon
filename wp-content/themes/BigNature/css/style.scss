@@ -39,6 +39,7 @@ $yellow:#F9D567;
 $blue:#A7D9CD;
 $purple:#592C4F;
 $forest: #1E4246;
+$red--fire:#E27B4C;
 
 $white: #ffffff;
 $black: #1E1E1C;
@@ -593,6 +594,14 @@ section{
     z-index: 4 !important;
 }
 
+.text-green{
+    color: $grass--green;
+}
+
+.text-red{
+    color: $red--fire;
+}
+
 // ----------------------------------------------------------------
 // HEADER
 // ----------------------------------------------------------------
@@ -637,35 +646,178 @@ section{
         z-index: 2;
         display: flex;
         padding-block: 80px;
+
         &__title{
             text-align: center;
             font-size: 60px;
         }
+
         .title-particle{
             &-1{
                 color: white;
             }
             &-2{
-                color: $grass--green
+                color: $grass--green;
+                position: relative;
+                &-expand{
+                    pointer-events: none;
+                    width: 300px;
+                    display: block;
+                    height: 300px;
+                    position: absolute;
+                    z-index: 1;
+                    background-color: $grass--green;
+                    border-radius: 50%;
+                    right: -135px;
+                    top: 55px;
+                    opacity: 0;
+                    transform: scale(0);
+                    transition: all 0.5s;
+                }
+                &:hover{
+                    font-size: 63px;
+                    .expand{
+                        opacity: 1;
+                        transform: scale(1);
+                        display: block;
+                    }
+                }
             }
             &-3{
                 color: white;
             }
             &-4{
                 color: $pink--ice;
+                position: relative;
+
+                &-expand{
+                    width: 300px;
+                    display: block;
+                    height: 300px;
+                    position: absolute;
+                    background-color: $pink--ice;
+                    border-radius: 50%;
+                    transform: translateX(100px);
+                    opacity: 0;
+                    transition: all 0.5s;
+                    pointer-events: none;
+                    margin-top: 70px;
+                }
+
+                &:hover{
+                    font-size: 63px;
+                    cursor: pointer;
+                    .scale-up{
+                        color: $red--fire;
+                        font-size:63px;
+                    }
+                    .expand{
+                        opacity: 1;
+                        transform: translateX(-100px);
+                    }
+
+                    i{
+                        transform: translateX(-45px) translateY(8px);
+                        opacity: 1;
+                    }
+                }
+
+                i{
+                    color:$pink--ice;
+                    position: absolute;
+                    font-size:20px;
+                    opacity: 0;
+                    transform: translateX(42px) translateY(8px);
+                    transition: all 0.5s;
+                }
+
+                .expand-img{
+                    width: 150px;
+                    img{
+                        width:100%;
+                        height:100%;
+                        object-fit: contain;
+                    }
+                }
+
+                .expand-content{
+                    color: white;
+                    font-size: 30px;
+                    z-index: 3;
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+                }
+                
             }
             &-5{
                 color: white;
             }
             &-6{
                 color: $yellow;
+                &:hover{
+                    cursor: pointer;
+                    .scale-up{
+                        color: $purple;
+                        font-size: 68px;
+                        transition: all 0.5s;
+                    }
+                }
             }
             &-7{
                 color: white;
             }
             &-8{
                 color: $leaf-green;
+                .particle-earth {
+                    position: relative;
+                    
+                    i{
+                        color: $grass--green;
+                        background-color: skyblue;
+                        border-radius: 50%;
+                        font-size: 35px;
+                        position: absolute;
+                        left: 30px;
+                        top: 30px;
+                        opacity: 0;
+                        transition: all 0.5s;
+                    }
+
+                    &:hover{
+                        i{
+                            opacity: 1;
+                        }
+                    }
+                }
+
+                .particle-rainbow{
+                    i{
+                        opacity: 0;
+                        transition: all 0.5s;
+                        font-size:0px;
+                    }
+
+                    &:hover{
+                        i{
+                            opacity: 1;
+                            font-size:60px;
+                        }
+                    }
+                }
             }
+        }
+
+        .can-expand{
+            cursor: pointer;
+            transition: all 0.5s;
+        }
+
+        .scale-up{
+            transition: all 0.5s;
         }
         
     }
@@ -675,11 +827,84 @@ section{
 .data{
     &-section{
         display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 40px;
+        flex-direction: column;
         align-items: center;
+        background-color: $pink--ice;
+        border-radius: 0px 0px 25px 25px;
+        &__tree{
+            height: 600px;
+            position: relative;
+            left: -70px;
+            place-self: start;
+            img{ 
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+        &-content{
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            @include respond-to('md-up'){
+                position: absolute;
+                left: 320px;
+                top: 50px;
+                display: unset;
+            }
+        }
     }
+
+    &-header {
+        position: relative;
+        &__title{
+            color: $purple;
+            text-align: center;
+            margin: 0px;
+            width: fit-content;
+            font-size: 60px;
+            margin-top: -10px;
+            @include respond-to('md-up'){
+                font-size: 80px;
+            }
+        }
+
+        &__rec{
+            
+            background-color: $yellow;
+            border-radius:10px;
+            position: absolute;
+            top: -25px;
+            width: 100%;
+            height: 60px;
+            z-index: -1;
+            transform: rotate(-3deg);
+            @include respond-to('md-up'){
+                height: 70px;
+            }
+        }
+    }
+
+    &-content{
+
+        &__intro{
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        &__logo{
+            width: 250px;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+            @include respond-to('md-up'){
+                width: 400px;
+            }
+        }
+    }
+
     &-element{
         text-align: center;
     }
