@@ -1587,7 +1587,7 @@ strong{
         align-items: center;
     }
 
-    &-button {
+    &-button, #custom-btn-submit {
         background-color:$forest;
         color: white;
         border: none;
@@ -1595,6 +1595,7 @@ strong{
         padding: 15px 30px;
     }
 
+    
     .mobile-ble {
         display: none;
         @include respond-to('md-up') {
@@ -1602,4 +1603,12 @@ strong{
         }
     }
 
+}
+
+.frm_style_formidable-style.with_frm_style .frm_submit button {
+    background-color:$forest;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 30px;
 }
