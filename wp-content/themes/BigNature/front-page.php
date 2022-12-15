@@ -135,11 +135,10 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 			<?php
 				endif;
 			?>
-
-			<!--<div class="data-section-background">
-				<img src="<?php echo get_template_directory_uri();?>/images/jpg/wheat-field.jpg" alt="">
-			</div>-->
 		</section>
+		<div class="img-separator">
+			<img src="<?php echo get_template_directory_uri();?>/images/jpg/wheat-field.jpg" alt="">
+		</div>
 		<!--<div class="data-section">
 			<?php
 				foreach($list_prods as $prod):
@@ -248,43 +247,65 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
       		<div id="panels" class="container horizontal-container horizontal-section engagement engagement-section">
 
 				<!--Emptydiv-->
-				<div></div>
+				
 				<!--Horizontal section intro-->
-				<div class="engagement-intro">
-					<h2 class="engagement-intro__title">
-						nos engagements
-					</h2>
-					<p class="engagement-intro__text">
-						découvrez nos engagements 2022 et nos ambitions pour les années à venir.
-					</p>
-					<div class="engagement-back__img">
-						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="790.454" height="1040.366" viewBox="0 0 790.454 1040.366">
-							<defs>
-							<filter id="Icon_awesome-leaf" x="0" y="0" width="790.454" height="1040.366" filterUnits="userSpaceOnUse">
-							<feOffset dy="1" input="SourceAlpha"/>
-							<feGaussianBlur stdDeviation="1.5" result="blur"/>
-							<feFlood flood-opacity="0.161"/>
-							<feComposite operator="in" in2="blur"/>
-							<feComposite in="SourceGraphic"/>
-							</filter>
-							</defs>
-							<g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Icon_awesome-leaf)">
-							<path id="Icon_awesome-leaf-2" data-name="Icon awesome-leaf" d="M933.013,13.567c-9.567-17.443-36.9-18.141-48.346-1.675-52.959,75.214-147.773,122.1-256.082,122.1H491.916c-181.085,0-328,120.008-328,267.924,0,9.768,1.367,19.117,2.563,28.606,108.993-63.772,266.332-117.914,489.443-117.914,15.033,0,27.334,10.047,27.334,22.327s-12.3,22.327-27.334,22.327C226.438,357.263,44.328,572.3,4.01,653.1c-11.275,22.746,2.05,48.7,29.9,58.05,28.017,9.489,59.792-1.535,71.409-24.141,2.563-5.024,35.7-66.842,122.831-126.427,55.351,61.26,160.585,119.729,298.791,107.728C795.148,652.4,983.922,455.921,983.922,215.347c0-70.051-18.45-142.614-50.909-201.78Z" transform="translate(717.32 3.5) rotate(86)" fill="#dadfab" opacity="0.336"/>
-							</g>
-						</svg>
-					</div>
-					<span class="engagement-intro__date">2022</span>
+				<div class="engagement-intros">
+					<?php
+						$engagements = get_field('engagements');
+						$eng_count = count($engagements)/4;
+						if($engagements) : 
+							$inc=0;
+							
+							while($inc<$eng_count) :
+								$inc++;
+								$eng_desc_field = 'description_engagement_'.$inc;
+								$eng_title_field = 'titre_engagement_'.$inc;
+								$eng_date_field = 'date_engagement_'.$inc;
+								$eng_title = $engagements[$eng_title_field];
+								$eng_desc = $engagements[$eng_desc_field];
+								$eng_date = $engagements[$eng_date_field];
+					?>
+
+							<div id="intro-<?php echo $inc;?>" class="engagement-intro">
+								<h2 class="engagement-intro__title">
+									<!--<?php echo $eng_title;?>-->
+									Nos engagement
+								</h2>
+								<p class="engagement-intro__text">
+									<?php echo $eng_desc;?>
+								</p>
+								<div class="engagement-back__img">
+									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="790.454" height="1040.366" viewBox="0 0 790.454 1040.366">
+										<defs>
+										<filter id="Icon_awesome-leaf" x="0" y="0" width="790.454" height="1040.366" filterUnits="userSpaceOnUse">
+										<feOffset dy="1" input="SourceAlpha"/>
+										<feGaussianBlur stdDeviation="1.5" result="blur"/>
+										<feFlood flood-opacity="0.161"/>
+										<feComposite operator="in" in2="blur"/>
+										<feComposite in="SourceGraphic"/>
+										</filter>
+										</defs>
+										<g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Icon_awesome-leaf)">
+										<path id="Icon_awesome-leaf-2" data-name="Icon awesome-leaf" d="M933.013,13.567c-9.567-17.443-36.9-18.141-48.346-1.675-52.959,75.214-147.773,122.1-256.082,122.1H491.916c-181.085,0-328,120.008-328,267.924,0,9.768,1.367,19.117,2.563,28.606,108.993-63.772,266.332-117.914,489.443-117.914,15.033,0,27.334,10.047,27.334,22.327s-12.3,22.327-27.334,22.327C226.438,357.263,44.328,572.3,4.01,653.1c-11.275,22.746,2.05,48.7,29.9,58.05,28.017,9.489,59.792-1.535,71.409-24.141,2.563-5.024,35.7-66.842,122.831-126.427,55.351,61.26,160.585,119.729,298.791,107.728C795.148,652.4,983.922,455.921,983.922,215.347c0-70.051-18.45-142.614-50.909-201.78Z" transform="translate(717.32 3.5) rotate(86)" fill="#dadfab" opacity="0.336"/>
+										</g>
+									</svg>
+								</div>
+								<span class="engagement-intro__date"><?php echo $eng_date;?></span>
+							</div>
+					<?php
+							endwhile;
+						endif;
+					?>
 				</div>
+				
 				<!--/Horizontal section intro-->
 
 				<!--Horizontal section panels-->
 				<div id="panels-container" class="horizontal-scroll 2022-scroll" style="width: 500%;">
 				
 					<?php 
-						$engagements = get_field('engagements');
 						if($engagements) : 
 							$i=0;
-							$eng_count = count($engagements)/2;
 							while($i<$eng_count) :
 								$i++;
 								$img_key = 'image_engagement_'.$i;
@@ -362,7 +383,9 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 			</div>
 		</section>
 
-
+		<div class="img-separator">
+			<img src="<?php echo get_template_directory_uri();?>/images/jpg/coton-field.jpg" alt="">
+		</div>
 		<!-- -------------- AGENDA --------------  -->
 		<section class="agenda-section agenda">
 			<div class="agenda-container container">
@@ -407,6 +430,9 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 				<a class="agenda-cta" href="">tous les événements <i class="fa-solid fa-turn-up"></i> </a>
 			</div>
 		</section>
+		<div class="img-separator">
+			<img src="<?php echo get_template_directory_uri();?>/images/jpg/bunch-raw-lemons.jpg" alt="">
+		</div>
 
 
 	</div><!-- #content -->

@@ -638,6 +638,14 @@ strong{
         gap: 30px;
         margin-block: 0px;
         padding-block: 25px;
+        @include respond-to('md'){
+            li{
+                display: none;
+                &:last-child{
+                    display: block;
+                }
+            }
+        }
     }
     .donate-button{
         position: absolute;
@@ -650,6 +658,8 @@ strong{
             color: white;
         }
     }
+
+    
 }
 
 // ----------------------------------------------------------------
@@ -664,11 +674,22 @@ strong{
         z-index: 2;
         display: flex;
         padding-block: 80px;
+        @include respond-to('md-up'){
+            padding-bottom: 200px;
+        }
 
         &__title{
             text-align: center;
             font-size: 30px;
             @include respond-to('md-up'){
+                font-size: 40px;
+            }
+
+            @include respond-to('lg-up'){
+                font-size: 50px;
+            }
+
+            @include respond-to('xl-up'){
                 font-size: 60px;
             }
         }
@@ -704,7 +725,15 @@ strong{
                 &:hover{
                     font-size: 33px;
                     @include respond-to('md-up'){
-                        font-size: 63px;
+                        font-size: 43px;
+                    }
+        
+                    @include respond-to('lg-up'){
+                        font-size: 53px;
+                    }
+        
+                    @include respond-to('xl-up'){
+                        font-size:63px;
                     }
                     .expand{
                         opacity: 1;
@@ -776,18 +805,33 @@ strong{
                     opacity: 0;
                     transition: all 0.5s;
                     pointer-events: none;
-                    margin-top: 70px;
+                    
                     @include respond-to('md'){
                         display: none;
                     }
+                    @include respond-to('lg-up'){
+                        margin-top: 70px;
+                    }
+                    
                 }
 
-                &:hover{
-                    font-size: 63px;
+                /*&:hover{
+                    
                     cursor: pointer;
                     .scale-up{
                         color: $red--fire;
-                        font-size:63px;
+                        font-size: 33px;
+                        @include respond-to('md-up'){
+                            font-size: 43px;
+                        }
+            
+                        @include respond-to('lg-up'){
+                            font-size: 53px;
+                        }
+            
+                        @include respond-to('xl-up'){
+                            font-size:63px;
+                        }
                     }
                     .expand{
                         opacity: 1;
@@ -798,19 +842,77 @@ strong{
                         transform: translateX(-45px) translateY(8px);
                         opacity: 1;
                     }
-                    @include respond-to('md'){
-                        display: none;
-                        pointer-events: none;
+                }*/
+
+                @include respond-to('md-up'){
+                    &:hover{
+                        cursor: pointer;
+                        .scale-up{
+                            color: $red--fire;
+                            font-size: 43px;
+                
+                            @include respond-to('lg-up'){
+                                font-size: 53px;
+                            }
+                
+                            @include respond-to('xl-up'){
+                                font-size:63px;
+                            }
+                            transition: all 0.5s;
+                        }
+
+                        .expand{
+                            opacity: 1;
+                            
+                            @include respond-to('md-up'){
+                                transform: translateX(-25px);
+                            }
+        
+                            @include respond-to('lg-up'){
+                                transform: translateX(-14px);
+                            }
+        
+                            @include respond-to('xl-up'){
+                                transform: translateX(-100px);
+                            }
+                        }
+    
+                        i{
+                            opacity: 1;
+                            @include respond-to('md-up'){
+                                transform: translateX(-31px) translateY(4px);
+                            }
+
+                            @include respond-to('lg-up'){
+                                transform: translateX(-37px) translateY(5px);
+                            }
+                
+                            @include respond-to('xl-up'){
+                                transform: translateX(-45px) translateY(8px);
+                            }
+                            transition: all 0.5s;
+                        }
                     }
                 }
 
                 i{
                     color:$pink--ice;
                     position: absolute;
-                    font-size:20px;
                     opacity: 0;
                     transform: translateX(42px) translateY(8px);
                     transition: all 0.5s;
+
+                    @include respond-to('md-up'){
+                        font-size: 16px;
+                    }
+
+                    @include respond-to('lg-up'){
+                        font-size: 17px;
+                    }
+
+                    @include respond-to('xl-up'){
+                        font-size: 20px;
+                    }
                 }
 
                 .expand-img{
@@ -840,12 +942,23 @@ strong{
             }
             &-6{
                 color: $yellow;
-                &:hover{
-                    cursor: pointer;
-                    .scale-up{
-                        color: $purple;
-                        font-size: 68px;
-                        transition: all 0.5s;
+                
+                @include respond-to('md-up'){
+                    &:hover{
+                        cursor: pointer;
+                        .scale-up{
+                            color: $purple;
+                            font-size: 48px;
+                
+                            @include respond-to('lg-up'){
+                                font-size: 58px;
+                            }
+                
+                            @include respond-to('xl-up'){
+                                font-size:68px;
+                            }
+                            transition: all 0.5s;
+                        }
                     }
                 }
             }
@@ -861,17 +974,37 @@ strong{
                         color: $grass--green;
                         background-color: skyblue;
                         border-radius: 50%;
-                        font-size: 35px;
                         position: absolute;
-                        left: 30px;
-                        top: 30px;
                         opacity: 0;
-                        transition: all 0.5s;
+                        transition: opacity 0.5s;
+
+                        
+
+                        @include respond-to('md-up'){
+                            font-size: 23px;
+                            left: 21px;
+                            top: 20px;
+                        }
+
+                        @include respond-to('lg-up'){ 
+                            font-size: 30px;
+                            left: 25px;
+                            top: 24px;
+                        }
+
+                        @include respond-to('xl-up'){ 
+                            font-size: 35px;
+                            left: 30px;
+                            top: 30px;
+                        }
                     }
 
-                    &:hover{
-                        i{
-                            opacity: 1;
+                    
+                    @include respond-to('md-up'){
+                        &:hover{
+                            i{
+                                opacity: 1;
+                            }
                         }
                     }
                 }
@@ -886,7 +1019,18 @@ strong{
                     &:hover{
                         img{
                             opacity: 1;
-                            width: 60px;
+                            
+                            @include respond-to('md-up'){
+                                width: 40px;
+                            }
+
+                            @include respond-to('lg-up'){
+                                width: 50px;
+                            }
+
+                            @include respond-to('xl-up'){
+                                width: 60px;
+                            }
                         }
                     }
                 }
@@ -917,7 +1061,6 @@ strong{
         align-items: center;
         background-color: $pink--ice;
         border-radius: 0px 0px 25px 25px;
-        margin-bottom: 200px;
         &__tree{
             height: 600px;
             position: relative;
@@ -943,8 +1086,7 @@ strong{
         &-background{
             height: 350px;
             width: 100%;
-            position: absolute;
-            bottom: -306px;
+            position: relative;
             z-index: -1;
             img{
                 width: 100%;
@@ -1016,6 +1158,7 @@ strong{
         border-radius: 25px;
         position: relative;
         z-index: 3;
+        margin-top: -40px;
     }
     
     &-list{
@@ -1150,11 +1293,13 @@ strong{
         }
     }
     &-intro{
-        position: fixed;
+        /*position: fixed;
         top: 0;
-        z-index: 2;
+        z-index: 2;*/
+        position:absolute;
+        top: 0px;
         max-width: 300px;
-        z-index: 1;
+        //z-index: 1;
         padding-top: 120px;
         &__title{
             color: $dark-green;
@@ -1190,6 +1335,9 @@ strong{
 .horizontal{
     border-radius: 25px 25px 0px 0px;
     background-color: $cream;
+    margin-top: -40px;
+    position: relative;
+    z-index: 4;
     &-container{
         
     }
@@ -1209,14 +1357,29 @@ strong{
             min-width: 180px !important;
             height: 120px;
             display: block;
-            width: 120px;
+            width: 100%;
             height: 250px;
+            display: flex;
+            justify-content: center;
             img{ 
-                width:100%;
                 height:100%;
                 object-fit: contain;
+                object-position: left;
             }
         }
+    }
+}
+
+.img-separator{
+    height: 225px;
+    width: 100%;
+    margin-top: -45px;
+    position: relative;
+    z-index: 1;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 }
 
@@ -1295,9 +1458,11 @@ strong{
 .site-footer{
     position: relative;
     z-index: 2;
+    
     &-section{
         background-color:$leaf-green;
-        border-radius: 25px;
+        border-radius: 25px 25px 0px 0px;
+        margin-top: -40px;
     }
 
     &-illustration{
