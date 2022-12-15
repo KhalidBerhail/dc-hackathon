@@ -919,13 +919,17 @@ strong{
         border-radius: 0px 0px 25px 25px;
         margin-bottom: 200px;
         &__tree{
-            height: 600px;
-            position: relative;
-            left: -70px;
-            place-self: start;
-            img{ 
-                height: 100%;
-                object-fit: contain;
+            display: none;
+            @include respond-to('md-up'){
+                display: block;
+                height: 600px;
+                position: relative;
+                left: -70px;
+                place-self: start;
+                img{ 
+                    height: 100%;
+                    object-fit: contain;
+                }
             }
         }
         &-content{
@@ -969,7 +973,6 @@ strong{
         }
 
         &__rec{
-            
             background-color: $yellow;
             border-radius:10px;
             position: absolute;
@@ -1004,10 +1007,199 @@ strong{
         }
     }
 
-    &-element{
-        text-align: center;
-    }
+
+    // &-stats {
+    //     position: absolute;
+
+    //     &__container {
+    //         flex-direction: column;
+    //         margin-bottom: 40px;
+    //         background-color: blue;
+    //         @include respond-to('md-up'){
+    //             display: flex;
+    //             flex-direction: row;
+    //             align-items: center;
+    //             justify-content: space-between;
+    //         }
+    //     }
+
+    //     &-element {
+    //         text-align: center;
+    //         width: 100%;
+    //         margin-right: 0px;
+    //         background-color: red;
+    //         @include respond-to('md-up'){
+    //             text-align: center;
+    //             width: 300px;
+    //             background-color: red;
+    //         }
+
+    //         &__title {
+    //             font-size: 16px;
+    //             font-weight: 200;
+    //         }
+
+    //         &__metric {
+    //         }
+
+    //         &__num {
+    //             font-size: 30px;
+    //             font-weight: 800;
+    //         }
+
+    //         &__desc {
+    //             word-wrap: break-word;
+    //         }
+
+    //     }
+    // }
+
+    
 }
+
+
+//-------------------------------------------------------
+// REBUILD PROJET DATA
+//-------------------------------------------------------
+
+.data-projet-section {
+    background-color: $pink--ice;
+    padding: 30px 0;
+
+    &-header{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: -100px;
+
+        &__title{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color:$purple;
+            z-index: 1;
+        }
+
+        &__highlight{
+            width: 200px;
+            height: 80px;
+            margin-bottom: 60px;
+            background: $yellow;
+            transform: rotate(-3deg);
+            border-radius: 10px;
+            position: absolute;
+            z-index: 0;
+        }
+    }
+
+    &-body{
+        display: flex;
+        align-items: start;
+        justify-content: center;
+
+        &-illustration {
+            &__tree{
+                display: none;
+                @include respond-to('md-up'){
+                    display: block;
+                    height: 600px;
+                    position: relative;
+                    left: -70px;
+                    place-self: start;
+                    img{ 
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+            }
+        }
+
+        &-subcontainer{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+            &-titles{
+                margin-bottom: 100px;
+
+                &__logo{
+                    width: 400px;
+                    img{
+                        width:100%;
+                    }
+                }
+        
+                &__intro{
+                    color: $white;
+                    font-size: 22px;
+                }
+
+            }
+
+
+        }
+
+        
+
+        &-api {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            @include respond-to('md-up') {
+                flex-direction: row;
+            }
+
+            &-stats{
+                margin: 0 20px 60px 0;
+                @include respond-to('md-up'){
+                    margin: 0 20px 20px 0;
+                }
+                
+                
+                &-metrics {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    
+                    &__title {
+                        margin: 0;
+                        font-weight: 200;
+                    }
+    
+                    &__desc {
+                        color: $grass--green;
+                    }
+
+                    &__num {
+                        font-size: 62px;
+                        font-weight: 800;
+                        margin: 0;
+                        color: $grass--green;
+                    }
+    
+                    &__unit {
+                        color: $grass--green;
+                    }
+                }
+    
+            }
+        }
+
+        
+
+    }
+
+}
+
+//-------------------------------------------------------
+// FIN REBUILD PROJET DATA
+//-------------------------------------------------------
+
+
 
 //Agenda sections
 .agenda{
@@ -1579,6 +1771,7 @@ strong{
         color: $forest;
         position: relative;
         z-index: 10;
+        margin-bottom: 30px;
     }
 
     &-box-three {
@@ -1611,4 +1804,11 @@ strong{
     border: none;
     border-radius: 50px;
     padding: 15px 30px;
+}
+
+input#field_yqdq{
+    border: none;
+    border-bottom: 2px solid $forest;
+    box-shadow: none;
+    background-color: transparent;
 }
