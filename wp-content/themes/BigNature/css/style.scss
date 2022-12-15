@@ -1062,13 +1062,17 @@ strong{
         background-color: $pink--ice;
         border-radius: 0px 0px 25px 25px;
         &__tree{
-            height: 600px;
-            position: relative;
-            left: -70px;
-            place-self: start;
-            img{ 
-                height: 100%;
-                object-fit: contain;
+            display: none;
+            @include respond-to('md-up'){
+                display: block;
+                height: 600px;
+                position: relative;
+                left: -70px;
+                place-self: start;
+                img{ 
+                    height: 100%;
+                    object-fit: contain;
+                }
             }
         }
         &-content{
@@ -1111,7 +1115,6 @@ strong{
         }
 
         &__rec{
-            
             background-color: $yellow;
             border-radius:10px;
             position: absolute;
@@ -1146,10 +1149,199 @@ strong{
         }
     }
 
-    &-element{
-        text-align: center;
-    }
+
+    // &-stats {
+    //     position: absolute;
+
+    //     &__container {
+    //         flex-direction: column;
+    //         margin-bottom: 40px;
+    //         background-color: blue;
+    //         @include respond-to('md-up'){
+    //             display: flex;
+    //             flex-direction: row;
+    //             align-items: center;
+    //             justify-content: space-between;
+    //         }
+    //     }
+
+    //     &-element {
+    //         text-align: center;
+    //         width: 100%;
+    //         margin-right: 0px;
+    //         background-color: red;
+    //         @include respond-to('md-up'){
+    //             text-align: center;
+    //             width: 300px;
+    //             background-color: red;
+    //         }
+
+    //         &__title {
+    //             font-size: 16px;
+    //             font-weight: 200;
+    //         }
+
+    //         &__metric {
+    //         }
+
+    //         &__num {
+    //             font-size: 30px;
+    //             font-weight: 800;
+    //         }
+
+    //         &__desc {
+    //             word-wrap: break-word;
+    //         }
+
+    //     }
+    // }
+
+    
 }
+
+
+//-------------------------------------------------------
+// REBUILD PROJET DATA
+//-------------------------------------------------------
+
+.data-projet-section {
+    background-color: $pink--ice;
+    padding: 30px 0;
+
+    &-header{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: -100px;
+
+        &__title{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color:$purple;
+            z-index: 1;
+        }
+
+        &__highlight{
+            width: 200px;
+            height: 80px;
+            margin-bottom: 60px;
+            background: $yellow;
+            transform: rotate(-3deg);
+            border-radius: 10px;
+            position: absolute;
+            z-index: 0;
+        }
+    }
+
+    &-body{
+        display: flex;
+        align-items: start;
+        justify-content: center;
+
+        &-illustration {
+            &__tree{
+                display: none;
+                @include respond-to('md-up'){
+                    display: block;
+                    height: 600px;
+                    position: relative;
+                    left: -70px;
+                    place-self: start;
+                    img{ 
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+            }
+        }
+
+        &-subcontainer{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+            &-titles{
+                margin-bottom: 100px;
+
+                &__logo{
+                    width: 400px;
+                    img{
+                        width:100%;
+                    }
+                }
+        
+                &__intro{
+                    color: $white;
+                    font-size: 22px;
+                }
+
+            }
+
+
+        }
+
+        
+
+        &-api {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            @include respond-to('md-up') {
+                flex-direction: row;
+            }
+
+            &-stats{
+                margin: 0 20px 60px 0;
+                @include respond-to('md-up'){
+                    margin: 0 20px 20px 0;
+                }
+                
+                
+                &-metrics {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    
+                    &__title {
+                        margin: 0;
+                        font-weight: 200;
+                    }
+    
+                    &__desc {
+                        color: $grass--green;
+                    }
+
+                    &__num {
+                        font-size: 62px;
+                        font-weight: 800;
+                        margin: 0;
+                        color: $grass--green;
+                    }
+    
+                    &__unit {
+                        color: $grass--green;
+                    }
+                }
+    
+            }
+        }
+
+        
+
+    }
+
+}
+
+//-------------------------------------------------------
+// FIN REBUILD PROJET DATA
+//-------------------------------------------------------
+
+
 
 //Agenda sections
 .agenda{
@@ -1744,6 +1936,7 @@ strong{
         color: $forest;
         position: relative;
         z-index: 10;
+        margin-bottom: 30px;
     }
 
     &-box-three {
@@ -1752,7 +1945,7 @@ strong{
         align-items: center;
     }
 
-    &-button {
+    &-button, #custom-btn-submit {
         background-color:$forest;
         color: white;
         border: none;
@@ -1760,6 +1953,7 @@ strong{
         padding: 15px 30px;
     }
 
+    
     .mobile-ble {
         display: none;
         @include respond-to('md-up') {
@@ -1767,4 +1961,356 @@ strong{
         }
     }
 
+}
+
+.frm_style_formidable-style.with_frm_style .frm_submit button {
+    background-color:$forest;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 30px;
+}
+
+input#field_yqdq{
+    border: none;
+    border-bottom: 2px solid $forest;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+
+
+
+//------------------------------------MATHEO MODIFS----------------------------------------------------//
+
+// ----------------------------------------------------------------
+// FOOTER
+// ----------------------------------------------------------------
+.site-footer{
+    position: relative;
+    z-index: 2;
+    &-section{
+        background-color:$leaf-green;
+        border-radius: 25px;
+    }
+
+    &-illustration{
+        width: 100px;
+    }
+
+    &-wrapper{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, auto);
+        grid-gap: 10px;
+        padding: 40px;
+    }
+
+    // Ligne 1
+    &-wrapped-one {
+        display: none;
+        @include respond-to('md-up'){
+            display: block;
+            grid-column: 1 / 2;
+            grid-row: 1;
+            justify-self: center;
+            align-self: center;
+        }
+    }
+
+    &-wrapped-two {
+        grid-column: 2 / 3;
+        grid-row: 1;
+        justify-self: center;
+        align-self: center;
+    }
+
+    &-wrapped-three {
+        display: none;
+        @include respond-to('md-up'){
+            display: block;
+            grid-column: 3 / 3;
+            grid-row: 1;
+            justify-self: center;
+            align-self: center;
+        }
+    }
+
+    // Ligne 2
+    &-wrapped-four {
+        display: none;
+        @include respond-to('md-up'){
+            display: block;
+            grid-column: 1 / 2;
+            grid-row: 2;
+            justify-self: end;
+            align-self: center;
+        }
+    }
+
+    &-wrapped-five {
+        grid-column: 2 / 3;
+        grid-row: 2;
+        justify-self: center;
+        align-self: center;
+    }
+
+    &-wrapped-six {
+        display: none;
+        @include respond-to('md-up'){
+            display: block;
+            grid-column: 3 / 3;
+            grid-row: 2;
+            justify-self: start;
+            align-self: center;
+        }
+    }
+
+    // Ligne 3
+    &-wrapped-seven {
+        display: none;
+        @include respond-to('md-up'){
+            display: block;
+            grid-column: 1 / 2;
+            grid-row: 3;
+            justify-self: center;
+            align-self: center;
+        }
+    }
+    
+    &-wrapped-eight {
+        grid-column: 2 / 3;
+        grid-row: 3;
+        justify-self: center;
+        align-self: end;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    &-wrapped-nine {
+        display: none;
+        @include respond-to('md-up'){
+            display: block;
+            grid-column: 3 / 3;
+            grid-row: 3;
+            justify-self: center;
+            align-self: center;
+        }
+    }
+
+    &-logo {
+        width: 250px;
+    }
+
+    &__link {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: wheat;
+        i{
+            font-size: 30px;
+        }
+        &:hover{
+            color: $yellow;
+        }
+    }
+}
+
+// ----------------------------------------------------------------
+// OUR TREES
+// ----------------------------------------------------------------
+
+.ourtrees {
+    &-section {
+        flex-direction: column;
+        @include respond-to('md-up'){
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    &-forest {
+        width: 100vw;
+        height: 600px;
+        @include respond-to('md-up'){
+            width: 50vw;
+        }
+        
+    }
+
+    &-tree {
+        width: 100%;
+        height: 100%;
+        background-image: url("../images/jpg/foret.jpg");
+    } 
+
+    &-title {
+        padding: 50px;
+    }
+
+    &-highlight {
+        width: 280px;
+        height: 60px;
+        background: $pink--ice;
+        transform: rotate(-3deg);
+        border-radius: 10px;
+        position: absolute;
+    }
+
+    &-text {
+        font-size: 4em;
+        color: $white;
+        position: relative;
+    }
+
+    &-map {
+        width: 100vw;
+        background-color: $yellow;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 600px;
+        @include respond-to('md-up'){
+            width: 50vw;
+        }
+    }
+
+    &-carte {
+        max-width: 60%;
+        @include respond-to('md-up') {
+            max-width: 80%;
+        }
+    }
+
+    &-legend {
+        flex-direction: column;
+        @include respond-to('md-up') {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+        }
+    }
+
+    &-legend-container {
+        display: flex;
+        align-items: center;
+        margin: 30px;
+    }
+
+
+    &-legend-leaf{
+        width : 30px;
+        margin-right: 20px;
+    }
+
+    &-legend-text{
+        font-size: 20px;
+        color: $pink;
+    }
+
+
+}
+
+
+
+
+// ----------------------------------------------------------------
+// JOIN US
+// ----------------------------------------------------------------
+
+.joinus {
+    &-section{
+        background-color: $pink--ice;
+        border-radius: 25px;
+        padding: 40px;
+    }
+
+    &-box {
+       display: flex;
+       flex-direction: column;
+    }
+
+    &-box-one {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include respond-to('md-up') {
+            justify-content: space-between;
+        }
+    }
+
+    &-box-two {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 40px 0;
+        @include respond-to('md-up') {
+            margin: 0 0;
+        }
+    }
+
+    &-highlight {
+        position: absolute;
+        z-index: 1;
+        width: 180px;
+        height: 60px;
+        background: $yellow;
+        transform: rotate(-5deg);
+        border-radius: 10px;
+        margin-left: 20px;
+    }
+
+    &-text{
+        font-size: 2.5em;
+        color: $forest;
+        position: relative;
+        z-index: 10;
+        margin-bottom: 30px;
+    }
+
+    &-box-three {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &-button, #custom-btn-submit {
+        background-color:$forest;
+        color: white;
+        border: none;
+        border-radius: 50px;
+        padding: 15px 30px;
+    }
+
+    
+    .mobile-ble {
+        display: none;
+        @include respond-to('md-up') {
+            display: block;
+        }
+    }
+
+}
+
+.frm_style_formidable-style.with_frm_style .frm_submit button {
+    background-color:$forest;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 30px;
+}
+
+input#field_yqdq{
+    border: none;
+    border-bottom: 2px solid $forest;
+    box-shadow: none;
+    background-color: transparent;
 }
