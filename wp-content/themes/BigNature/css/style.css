@@ -2286,6 +2286,27 @@ section {
   color: #E27B4C;
 }
 
+.text-yellow {
+  color: #F9D567;
+}
+
+.text-lime {
+  color: #A1C55E;
+}
+
+.text-pink {
+  color: #E8C7CC;
+}
+
+.text-light-bleu {
+  color: #A7D9CD;
+}
+
+strong {
+  font-size: 20px;
+  font-weight: bold;
+}
+
 .navbar {
   background-color: #F8F1E1;
   position: fixed;
@@ -2332,7 +2353,13 @@ section {
 
 .hero-section__title {
   text-align: center;
-  font-size: 60px;
+  font-size: 30px;
+}
+
+@media (min-width: 768px) {
+  .hero-section__title {
+    font-size: 60px;
+  }
 }
 
 .hero-section .title-particle-1 {
@@ -2345,10 +2372,13 @@ section {
 }
 
 .hero-section .title-particle-2-expand {
+  font-size: 10px;
+  color: white;
+  font-weight: lighter;
   pointer-events: none;
-  width: 300px;
+  width: 400px;
   display: block;
-  height: 300px;
+  height: 400px;
   position: absolute;
   z-index: 1;
   background-color: #364D39;
@@ -2362,8 +2392,20 @@ section {
   transition: all 0.5s;
 }
 
+@media (max-width: 767px) {
+  .hero-section .title-particle-2-expand {
+    display: none;
+  }
+}
+
 .hero-section .title-particle-2:hover {
-  font-size: 63px;
+  font-size: 33px;
+}
+
+@media (min-width: 768px) {
+  .hero-section .title-particle-2:hover {
+    font-size: 63px;
+  }
 }
 
 .hero-section .title-particle-2:hover .expand {
@@ -2371,6 +2413,56 @@ section {
   -webkit-transform: scale(1);
           transform: scale(1);
   display: block;
+}
+
+@media (max-width: 767px) {
+  .hero-section .title-particle-2:hover {
+    display: none;
+    pointer-events: none;
+  }
+}
+
+.hero-section .title-particle-2 .expand-content {
+  padding: 20px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.hero-section .title-particle-2 .expand-content__gridp {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto;
+      grid-template-columns: auto auto auto;
+  place-items: center;
+}
+
+.hero-section .title-particle-2 .expand-content__gridp strong:first-child {
+  text-align: left;
+}
+
+.hero-section .title-particle-2 .expand-content__gridp strong:last-child {
+  text-align: right;
+}
+
+.hero-section .title-particle-2 .expand-content .align-start {
+  text-align: start;
+}
+
+.hero-section .title-particle-2 .expand-content__img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  position: absolute;
+  right: 15px;
+  top: 20px;
+}
+
+.hero-section .title-particle-2 .expand-content__img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
 }
 
 .hero-section .title-particle-3 {
@@ -2398,6 +2490,12 @@ section {
   margin-top: 70px;
 }
 
+@media (max-width: 767px) {
+  .hero-section .title-particle-4-expand {
+    display: none;
+  }
+}
+
 .hero-section .title-particle-4:hover {
   font-size: 63px;
   cursor: pointer;
@@ -2418,6 +2516,13 @@ section {
   -webkit-transform: translateX(-45px) translateY(8px);
           transform: translateX(-45px) translateY(8px);
   opacity: 1;
+}
+
+@media (max-width: 767px) {
+  .hero-section .title-particle-4:hover {
+    display: none;
+    pointer-events: none;
+  }
 }
 
 .hero-section .title-particle-4 i {
@@ -2511,16 +2616,16 @@ section {
   opacity: 1;
 }
 
-.hero-section .title-particle-8 .particle-rainbow i {
+.hero-section .title-particle-8 .particle-rainbow img {
   opacity: 0;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
-  font-size: 0px;
+  width: 0px;
 }
 
-.hero-section .title-particle-8 .particle-rainbow:hover i {
+.hero-section .title-particle-8 .particle-rainbow:hover img {
   opacity: 1;
-  font-size: 60px;
+  width: 60px;
 }
 
 .hero-section .can-expand {
@@ -2532,6 +2637,11 @@ section {
 .hero-section .scale-up {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
+}
+
+.section {
+  position: relative;
+  z-index: 4 !important;
 }
 
 .data-section {
@@ -2547,6 +2657,7 @@ section {
           align-items: center;
   background-color: #E8C7CC;
   border-radius: 0px 0px 25px 25px;
+  margin-bottom: 200px;
 }
 
 .data-section__tree {
@@ -2582,6 +2693,21 @@ section {
     top: 50px;
     display: unset;
   }
+}
+
+.data-section-background {
+  height: 350px;
+  width: 100%;
+  position: absolute;
+  bottom: -306px;
+  z-index: -1;
+}
+
+.data-section-background img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .data-header {
@@ -2880,6 +3006,11 @@ section {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+}
+
+.horizontal {
+  border-radius: 25px 25px 0px 0px;
+  background-color: #F8F1E1;
 }
 
 .horizontal-scroll {

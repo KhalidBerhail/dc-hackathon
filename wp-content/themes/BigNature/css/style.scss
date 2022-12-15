@@ -40,7 +40,7 @@ $blue:#A7D9CD;
 $purple:#592C4F;
 $forest: #1E4246;
 $red--fire:#E27B4C;
-
+$lime:#A1C55E;
 $white: #ffffff;
 $black: #1E1E1C;
 
@@ -601,6 +601,24 @@ section{
 .text-red{
     color: $red--fire;
 }
+.text-yellow{
+    color: $yellow;
+}
+.text-lime{
+    color: $lime;
+}
+.text-pink{
+    color: $pink--ice;
+}
+
+.text-light-bleu{
+    color: $blue;
+}
+
+strong{
+    font-size: 20px;
+    font-weight: bold;
+}
 
 // ----------------------------------------------------------------
 // HEADER
@@ -649,7 +667,10 @@ section{
 
         &__title{
             text-align: center;
-            font-size: 60px;
+            font-size: 30px;
+            @include respond-to('md-up'){
+                font-size: 60px;
+            }
         }
 
         .title-particle{
@@ -660,10 +681,13 @@ section{
                 color: $grass--green;
                 position: relative;
                 &-expand{
+                    font-size: 10px;
+                    color: white;
+                    font-weight: lighter;
                     pointer-events: none;
-                    width: 300px;
+                    width: 400px;
                     display: block;
-                    height: 300px;
+                    height: 400px;
                     position: absolute;
                     z-index: 1;
                     background-color: $grass--green;
@@ -673,15 +697,66 @@ section{
                     opacity: 0;
                     transform: scale(0);
                     transition: all 0.5s;
+                    @include respond-to('md'){
+                        display: none;
+                    }
                 }
                 &:hover{
-                    font-size: 63px;
+                    font-size: 33px;
+                    @include respond-to('md-up'){
+                        font-size: 63px;
+                    }
                     .expand{
                         opacity: 1;
                         transform: scale(1);
                         display: block;
                     }
+                    @include respond-to('md'){
+                        display: none;
+                        pointer-events: none;
+                    }
                 }
+
+                .expand-content{
+                    padding: 20px;
+                    border-radius:50%;
+                    position: relative;
+                    &__gridp{
+                        display: grid;
+                        grid-template-columns: auto auto auto;
+                        place-items: center;
+                        strong{
+                            &:first-child{
+                                text-align:left;
+                            }
+
+                            &:last-child{
+                                text-align:right;
+                            }
+                        }
+                    }
+
+                    .align-start{
+                        text-align: start;
+                    }
+
+                    &__img{
+                        width: 70px;
+                        height: 70px;
+                        border-radius: 50%;
+                        position: absolute;
+                        right: 15px;
+                        top: 20px;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            border-radius: 50%;
+                        }
+                    }
+                }
+
+                
             }
             &-3{
                 color: white;
@@ -702,6 +777,9 @@ section{
                     transition: all 0.5s;
                     pointer-events: none;
                     margin-top: 70px;
+                    @include respond-to('md'){
+                        display: none;
+                    }
                 }
 
                 &:hover{
@@ -719,6 +797,10 @@ section{
                     i{
                         transform: translateX(-45px) translateY(8px);
                         opacity: 1;
+                    }
+                    @include respond-to('md'){
+                        display: none;
+                        pointer-events: none;
                     }
                 }
 
@@ -795,16 +877,16 @@ section{
                 }
 
                 .particle-rainbow{
-                    i{
+                    img{
                         opacity: 0;
                         transition: all 0.5s;
-                        font-size:0px;
+                        width:0px;
                     }
 
                     &:hover{
-                        i{
+                        img{
                             opacity: 1;
-                            font-size:60px;
+                            width: 60px;
                         }
                     }
                 }
@@ -824,6 +906,10 @@ section{
 }
 
 //DATA section
+.section{
+    position: relative;
+    z-index: 4 !important;
+}
 .data{
     &-section{
         display: flex;
@@ -831,6 +917,7 @@ section{
         align-items: center;
         background-color: $pink--ice;
         border-radius: 0px 0px 25px 25px;
+        margin-bottom: 200px;
         &__tree{
             height: 600px;
             position: relative;
@@ -851,6 +938,18 @@ section{
                 left: 320px;
                 top: 50px;
                 display: unset;
+            }
+        }
+        &-background{
+            height: 350px;
+            width: 100%;
+            position: absolute;
+            bottom: -306px;
+            z-index: -1;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
             }
         }
     }
@@ -1089,6 +1188,8 @@ section{
 }
 
 .horizontal{
+    border-radius: 25px 25px 0px 0px;
+    background-color: $cream;
     &-container{
         
     }

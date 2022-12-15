@@ -22,7 +22,29 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 				<span class="title-particle-1 title-particle">Nous sommes</span>
 				<span class="title-particle-2 title-particle can-expand">
 					BIG ensemble
-					<span class="title-particle-2-expand expand"></span>
+					<span class="title-particle-2-expand expand">
+						<div class="expand-content">
+							<p>est <strong class="text-yellow">une association</strong></p>
+							<p>fondée par <strong class="text-pink">Pascal Rigo</strong> en <strong class="text-pink">2021</strong></p>
+							<p>composé <strong class="text-red">d'une équipe de citoyens</strong> </p>
+							<p class="align-start">pour créer</p>
+							<p class="expand-content__gridp">
+								<strong class="text-light-bleu">Des aspirations citoyennes, des territoires de vie</strong>
+								et 
+								<strong class="text-light-bleu">des initiatives exemplaires</strong>
+							</p>
+							<p>sur</p>
+							<p>
+								<strong class="text-lime">
+									les enjeux sociétaux et environnementaux d'aujour'hui et de demain.
+								</strong>
+							</p>
+							<div class="expand-content__img">
+								<img src="<?php echo get_template_directory_uri()?>/images/jpg/pascal-rigo.jpg" alt="">
+							</div>
+						</div>
+						
+					</span>
 				</span>
 				
 				<span class="title-particle-3 title-particle">une association qui mobilise</span>
@@ -55,11 +77,11 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 						société
 						<i class="fa-solid fa-earth-americas"></i>
 					</span>
-					<span class="particle-rainbow">et l'environnement <i class="fa-solid fa-rainbow"></i> .</span>
+					<span class="particle-rainbow">et l'environnement <img src="<?php echo get_template_directory_uri();?>/images/png/rainbow.png" alt=""> .</span>
 				</span>
 			</h1>
 		</section><!-- #hero-section -->
-
+		
 		<section id="data-section" class="data-section">
 			<div class="data-section-header data-header">
 				
@@ -113,6 +135,10 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 			<?php
 				endif;
 			?>
+
+			<!--<div class="data-section-background">
+				<img src="<?php echo get_template_directory_uri();?>/images/jpg/wheat-field.jpg" alt="">
+			</div>-->
 		</section>
 		<!--<div class="data-section">
 			<?php
@@ -279,6 +305,65 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
       		</div>
 		</div>
 
+		
+
+		<!-- -------------- OUR TREES --------------  -->
+		
+		<section class="ourtrees-section ourtrees">
+			<div class="ourtrees-forest">
+				<div class="ourtrees-tree">
+					<div class="ourtrees-title">
+						<div class="ourtrees-highlight"> </div>
+						<span class="ourtrees-text">nos arbres <br/>en france</span>
+					</div>
+				</div>
+			</div>
+			<div class="ourtrees-map">
+				<img class="ourtrees-carte" src="<?php echo get_template_directory_uri();?>/images/png/carte.png" alt="foret"" alt="Carte de France">
+				<div class="ourtrees-legend">
+					<div class="ourtrees-legend-container">
+						<img class="ourtrees-legend-leaf" src="<?php echo get_template_directory_uri();?>/images/png/white_leaf.png" alt="feuille blanche">
+						<span class="ourtrees-legend-text">arbres plantés</span>
+					</div>
+					<div class="ourtrees-legend-container">
+						<img class="ourtrees-legend-leaf" src="<?php echo get_template_directory_uri();?>/images/png/green_leaf.png" alt="feuille verte">
+						<span class="ourtrees-legend-text">future plantation</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<!-- -------------- JOIN US --------------  -->
+		<section class="joinus-section joinus">
+			<div class="joinus-box">
+				<div class="joinus-box-one">
+						<img class="site-footer-illustration mobile-ble" src="<?php echo get_template_directory_uri();?>/images/png/ble.png" alt="blé">
+						<img class="site-footer-illustration mobile-ble" src="<?php echo get_template_directory_uri();?>/images/png/ble.png" alt="blé">
+						<img class="site-footer-illustration" src="<?php echo get_template_directory_uri();?>/images/png/ble.png" alt="blé">
+						<img class="site-footer-illustration mobile-ble" src="<?php echo get_template_directory_uri();?>/images/png/ble.png" alt="blé">
+					</div>
+				</div>
+				
+				<div class="joinus-box-two">
+					<img class="site-footer-illustration mobile-ble" src="<?php echo get_template_directory_uri();?>/images/png/ble.png" alt="blé">
+					<div>
+						<div class="joinus-highlight"> </div>
+						<div class="joinus-text">rejoignez-nous !</div>
+					</div>
+					<img class="site-footer-illustration mobile-ble" src="<?php echo get_template_directory_uri();?>/images/png/ble.png" alt="blé">
+				</div>
+
+				<div class="joinus-box-three">
+					<button class="joinus-button">
+						devenir membre
+					</button>
+				</div>
+			</div>
+		</section>
+
+
+		<!-- -------------- AGENDA --------------  -->
 		<section class="agenda-section agenda">
 			<div class="agenda-container container">
 			<h2 class="agenda-title">Agenda</h2>
@@ -323,59 +408,6 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 			</div>
 		</section>
 
-		<!-- -------------- OUR TREES --------------  -->
-		
-		<section class="ourtrees-section ourtrees">
-			<div class="ourtrees-forest">
-				<div class="ourtrees-tree">
-					<div class="ourtrees-title">
-						<div class="ourtrees-highlight"> </div>
-						<span class="ourtrees-text">nos arbres <br/>en france</span>
-					</div>
-				</div>
-			</div>
-			<div class="ourtrees-map">
-				<img class="ourtrees-carte" src="<?php echo get_template_directory_uri();?>/images/png/carte.png" alt="foret"" alt="Carte de France">
-				<div class="ourtrees-legend">
-					<div class="ourtrees-legend-container">
-						<img class="ourtrees-legend-leaf" src="<?php echo get_template_directory_uri();?>/images/png/white_leaf.png" alt="feuille blanche">
-						<span class="ourtrees-legend-text">arbres plantés</span>
-					</div>
-					<div class="ourtrees-legend-container">
-						<img class="ourtrees-legend-leaf" src="<?php echo get_template_directory_uri();?>/images/png/green_leaf.png" alt="feuille verte">
-						<span class="ourtrees-legend-text">future plantation</span>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- -------------- JOIN US --------------  -->
-		<section class="joinus-section joinus">
-			<div class="joinus-box">
-				<div class="joinus-box-one">
-						<img class="site-footer-illustration mobile-ble" src="<?php echo get_template_directory_uri();?>/images/png/ble.png" alt="blé">
-						<img class="site-footer-illustration mobile-ble" src="<?php echo get_template_directory_uri();?>/images/png/ble.png" alt="blé">
-						<img class="site-footer-illustration" src="<?php echo get_template_directory_uri();?>/images/png/ble.png" alt="blé">
-						<img class="site-footer-illustration mobile-ble" src="<?php echo get_template_directory_uri();?>/images/png/ble.png" alt="blé">
-					</div>
-				</div>
-				
-				<div class="joinus-box-two">
-					<img class="site-footer-illustration mobile-ble" src="<?php echo get_template_directory_uri();?>/images/png/ble.png" alt="blé">
-					<div>
-						<div class="joinus-highlight"> </div>
-						<div class="joinus-text">rejoignez-nous !</div>
-					</div>
-					<img class="site-footer-illustration mobile-ble" src="<?php echo get_template_directory_uri();?>/images/png/ble.png" alt="blé">
-				</div>
-
-				<div class="joinus-box-three">
-					<button class="joinus-button">
-						devenir membre
-					</button>
-				</div>
-			</div>
-		</section>
 
 	</div><!-- #content -->
 </div><!-- #primary -->
