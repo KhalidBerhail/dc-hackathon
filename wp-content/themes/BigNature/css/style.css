@@ -2878,7 +2878,17 @@ strong {
     -ms-grid-columns: 250px auto;
         grid-template-columns: 250px auto;
     position: relative;
+    gap: 60px;
+    place-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
+}
+
+.data-section-intro {
+  position: absolute;
+  top: 80px;
 }
 
 .data-header {
@@ -2964,6 +2974,7 @@ strong {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  padding-top: 80px;
 }
 
 .data-element {
