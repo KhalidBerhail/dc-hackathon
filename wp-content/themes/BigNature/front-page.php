@@ -440,7 +440,7 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 			<img src="<?php echo get_template_directory_uri();?>/images/jpg/coton-field.jpg" alt="">
 		</div>
 		<!-- -------------- AGENDA --------------  -->
-		<section class="agenda-section agenda">
+		<section id="agenda-section" class="agenda-section agenda">
 			<div class="agenda-container container">
 			
 			<div class=""

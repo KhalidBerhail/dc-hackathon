@@ -1777,6 +1777,20 @@ template {
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'FoundersGrotesk';
+  src: url("../fonts/FoundersGrotesk-Light.woff") format("woff");
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FoundersGrotesk';
+  src: url("../fonts/FoundersGrotesk-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 *, *::before, *::after {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -1789,7 +1803,7 @@ html {
 body {
   background-color: #F8F1E1;
   max-width: 100%;
-  font-family: "Open Sans", "system", sans-serif;
+  font-family: "FoundersGrotesk", "Open Sans", "system", sans-serif;
   font-size: 16px;
   color: #1E1E1C;
   line-height: 1.4;
@@ -2511,34 +2525,6 @@ strong {
 .hero-section .title-particle-4 {
   color: #E8C7CC;
   position: relative;
-  /*&:hover{
-                    
-                    cursor: pointer;
-                    .scale-up{
-                        color: $red--fire;
-                        font-size: 33px;
-                        @include respond-to('md-up'){
-                            font-size: 43px;
-                        }
-            
-                        @include respond-to('lg-up'){
-                            font-size: 53px;
-                        }
-            
-                        @include respond-to('xl-up'){
-                            font-size:63px;
-                        }
-                    }
-                    .expand{
-                        opacity: 1;
-                        transform: translateX(-100px);
-                    }
-
-                    i{
-                        transform: translateX(-45px) translateY(8px);
-                        opacity: 1;
-                    }
-                }*/
 }
 
 .hero-section .title-particle-4-expand {
@@ -2602,6 +2588,7 @@ strong {
   .hero-section .title-particle-4:hover .expand {
     -webkit-transform: translateX(-25px);
             transform: translateX(-25px);
+    margin-top: 70px;
   }
 }
 
@@ -2609,6 +2596,7 @@ strong {
   .hero-section .title-particle-4:hover .expand {
     -webkit-transform: translateX(-14px);
             transform: translateX(-14px);
+    margin-top: 70px;
   }
 }
 
@@ -2629,22 +2617,22 @@ strong {
 
 @media (min-width: 768px) and (min-width: 768px) {
   .hero-section .title-particle-4:hover i {
-    -webkit-transform: translateX(-31px) translateY(4px);
-            transform: translateX(-31px) translateY(4px);
+    -webkit-transform: translateX(-28px) translateY(-3px);
+            transform: translateX(-28px) translateY(-3px);
   }
 }
 
 @media (min-width: 768px) and (min-width: 992px) {
   .hero-section .title-particle-4:hover i {
-    -webkit-transform: translateX(-37px) translateY(5px);
-            transform: translateX(-37px) translateY(5px);
+    -webkit-transform: translateX(-32px) translateY(-1px);
+            transform: translateX(-32px) translateY(-1px);
   }
 }
 
 @media (min-width: 768px) and (min-width: 1200px) {
   .hero-section .title-particle-4:hover i {
-    -webkit-transform: translateX(-45px) translateY(8px);
-            transform: translateX(-45px) translateY(8px);
+    -webkit-transform: translateX(-39px) translateY(0px);
+            transform: translateX(-39px) translateY(0px);
   }
 }
 
@@ -2652,8 +2640,8 @@ strong {
   color: #E8C7CC;
   position: absolute;
   opacity: 0;
-  -webkit-transform: translateX(42px) translateY(8px);
-          transform: translateX(42px) translateY(8px);
+  -webkit-transform: translateY(8px);
+          transform: translateY(8px);
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
@@ -2661,18 +2649,24 @@ strong {
 @media (min-width: 768px) {
   .hero-section .title-particle-4 i {
     font-size: 16px;
+    -webkit-transform: translateY(-3px);
+            transform: translateY(-3px);
   }
 }
 
 @media (min-width: 992px) {
   .hero-section .title-particle-4 i {
     font-size: 17px;
+    -webkit-transform: translateY(-1px);
+            transform: translateY(-1px);
   }
 }
 
 @media (min-width: 1200px) {
   .hero-section .title-particle-4 i {
     font-size: 20px;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
   }
 }
 
@@ -2764,25 +2758,25 @@ strong {
 
 @media (min-width: 768px) {
   .hero-section .title-particle-8 .particle-earth i {
-    font-size: 23px;
-    left: 21px;
-    top: 20px;
+    font-size: 21px;
+    left: 18px;
+    top: 6px;
   }
 }
 
 @media (min-width: 992px) {
   .hero-section .title-particle-8 .particle-earth i {
-    font-size: 30px;
-    left: 25px;
-    top: 24px;
+    font-size: 27px;
+    left: 22px;
+    top: 8px;
   }
 }
 
 @media (min-width: 1200px) {
   .hero-section .title-particle-8 .particle-earth i {
-    font-size: 35px;
-    left: 30px;
-    top: 30px;
+    font-size: 32px;
+    left: 27px;
+    top: 7px;
   }
 }
 

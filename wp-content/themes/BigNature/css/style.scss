@@ -23,6 +23,20 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'FoundersGrotesk';
+    src: url('../fonts/FoundersGrotesk-Light.woff') format('woff');
+    font-weight: lighter;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FoundersGrotesk';
+    src: url('../fonts/FoundersGrotesk-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 // Fonts declaration
 $font-base: 'Open Sans', 'system', sans-serif;
 $font-title: 'FoundersGrotesk', 'Open Sans', 'system', sans-serif;
@@ -65,12 +79,11 @@ html{
 body{
     background-color: $pink;
     max-width: 100%;
-    font-family: $font-base;
+    font-family: $font-title;
     font-size: 16px;
     color: $color-base;
     line-height: 1.4;
     overflow-x: hidden;
-
     &.no-scroll{
         overflow-y: hidden;
     }
@@ -815,35 +828,6 @@ strong{
                     
                 }
 
-                /*&:hover{
-                    
-                    cursor: pointer;
-                    .scale-up{
-                        color: $red--fire;
-                        font-size: 33px;
-                        @include respond-to('md-up'){
-                            font-size: 43px;
-                        }
-            
-                        @include respond-to('lg-up'){
-                            font-size: 53px;
-                        }
-            
-                        @include respond-to('xl-up'){
-                            font-size:63px;
-                        }
-                    }
-                    .expand{
-                        opacity: 1;
-                        transform: translateX(-100px);
-                    }
-
-                    i{
-                        transform: translateX(-45px) translateY(8px);
-                        opacity: 1;
-                    }
-                }*/
-
                 @include respond-to('md-up'){
                     &:hover{
                         cursor: pointer;
@@ -866,10 +850,12 @@ strong{
                             
                             @include respond-to('md-up'){
                                 transform: translateX(-25px);
+                                margin-top: 70px;
                             }
         
                             @include respond-to('lg-up'){
                                 transform: translateX(-14px);
+                                margin-top: 70px;
                             }
         
                             @include respond-to('xl-up'){
@@ -880,15 +866,15 @@ strong{
                         i{
                             opacity: 1;
                             @include respond-to('md-up'){
-                                transform: translateX(-31px) translateY(4px);
+                                transform: translateX(-28px) translateY(-3px);
                             }
 
                             @include respond-to('lg-up'){
-                                transform: translateX(-37px) translateY(5px);
+                                transform: translateX(-32px) translateY(-1px);
                             }
                 
                             @include respond-to('xl-up'){
-                                transform: translateX(-45px) translateY(8px);
+                                transform: translateX(-39px) translateY(0px);
                             }
                             transition: all 0.5s;
                         }
@@ -899,19 +885,22 @@ strong{
                     color:$pink--ice;
                     position: absolute;
                     opacity: 0;
-                    transform: translateX(42px) translateY(8px);
+                    transform: translateY(8px);
                     transition: all 0.5s;
 
                     @include respond-to('md-up'){
                         font-size: 16px;
+                        transform: translateY(-3px);
                     }
 
                     @include respond-to('lg-up'){
                         font-size: 17px;
+                        transform: translateY(-1px);
                     }
 
                     @include respond-to('xl-up'){
                         font-size: 20px;
+                        transform: translateY(0px);
                     }
                 }
 
@@ -981,21 +970,21 @@ strong{
                         
 
                         @include respond-to('md-up'){
-                            font-size: 23px;
-                            left: 21px;
-                            top: 20px;
+                            font-size: 21px;
+                            left: 18px;
+                            top: 6px;
                         }
 
                         @include respond-to('lg-up'){ 
-                            font-size: 30px;
-                            left: 25px;
-                            top: 24px;
+                            font-size: 27px;
+                            left: 22px;
+                            top: 8px;
                         }
 
                         @include respond-to('xl-up'){ 
-                            font-size: 35px;
-                            left: 30px;
-                            top: 30px;
+                            font-size: 32px;
+                            left: 27px;
+                            top: 7px;
                         }
                     }
 
