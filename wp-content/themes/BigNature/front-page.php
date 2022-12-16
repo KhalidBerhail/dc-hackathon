@@ -35,7 +35,10 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 	<div id="content" class="site-content">
 
 		<section id="hero-section" class="hero-section">
-			<h1 class="hero-section__title container">
+			<h1 class="hero-section__title container"
+			data-aos="fade-up"
+			data-aos-duration="1000"
+			>
 				<span class="title-particle-1 title-particle">Nous sommes</span>
 				<span class="title-particle-2 title-particle can-expand">
 					BIG ensemble
@@ -108,17 +111,27 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 						$data_title = get_field('titre_section_projet');
 						if($data_title) :
 					?>
-						<h2 class="data-header__title">	
+						<h2 class="data-header__title"
+						data-aos="fade-up"
+						data-aos-duration="1200"
+						>	
 							<?php echo $data_title; ?>
 						</h2>
 					<?php
 						endif;
 					?>
 				
-				<span class="data-header__rec"></span>
+				<span class="data-header__rec"
+				data-aos="fade-down"
+				data-aos-duration="1300"
+				>
+				</span>
 			</div>
 
-			<div class="data-section-intro">
+			<div class="data-section-intro"
+			data-aos="fade-in"
+			data-aos-duration="1200"
+			>
 				<?php 
 					$data_logo = get_field('logo_section_projet');
 					if($data_logo) :
@@ -147,7 +160,9 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 				$data_image = get_field('image_section_projet');
 				if($data_image) :
 				?>
-					<div class="data-section__tree">
+					<div class="data-section__tree"
+					data-aos="fade-in"
+					data-aos-duration="1100">
 						<img src="<?php echo $data_image['url'];?>" alt="">
 					</div>
 				<?php
@@ -157,7 +172,9 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 				<div class="data-content__stats">
 
 					<?php
+						$extra = 1100;
 						foreach($list_prods as $prod):
+							$extra = $extra + 200;
 							$product = $prod['label'];
 							$url_fetch = $pre_url."&q=".urlencode($product)."&q_mode=simple";
 							$ch = curl_init();
@@ -185,14 +202,16 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 								
 							}
 							$http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-
+							
 							if($http_code == intval(200)) :
 								//decoding json response
 								$obj = json_decode($response);
 								$obj_number = number_format($obj->metric, 3, '.', '');
 								if($obj_number)
 					?>
-									<div class="data-element">
+									<div class="data-element"
+									data-aos="fade-up"
+									data-aos-duration="<?php echo $extra;?>">
 										<h3 class="data-element__title"><?php echo $product?></h3>
 										<p class="data-element__num"> ~ <?php echo $obj_number;?></p>
 										<p class="data-element__desc"><?php echo $metric_name;?></p>
@@ -222,7 +241,9 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 				<!--Emptydiv-->
 				
 				<!--Horizontal section intro-->
-				<div class="engagement-intros">
+				<div class="engagement-intros" 
+				data-aos="fade-up"
+				data-aos-duration="1600">
 					<?php
 						$engagements = get_field('engagements');
 						$eng_count = count($engagements)/4;
@@ -285,7 +306,8 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 								$img_url = $engagements[$img_key]['url'];
 					?>
 					
-						<div id="panel-<?php echo $i;?>" class="horizontal-scroll__item">
+						<div id="panel-<?php echo $i;?>" class="horizontal-scroll__item"
+						data-aos="fade-in">
 							<img src="<?php echo esc_url($img_url)?>" alt="">
 						</div>
 					<?php
@@ -300,7 +322,10 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 		</div>
 
 		<div class="horizontal-mobile">
-			<div class="horizontal-mobile-header">
+			<div class="horizontal-mobile-header"
+			data-aos="fade-down"
+			data-aos-duration="900"
+			>
 				<h2 class="engagement-intro__title">
 					Nos engagement
 				</h2>
@@ -322,7 +347,10 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 							$eng_date = $engagements[$eng_date_field];
 				?>
 				
-					<div class="horizontal-mobile__card">
+					<div class="horizontal-mobile__card"
+					data-aos="fade-up"
+					data-aos-duration="1200"
+					>
 						<div class="horizontal-mobile__card--img">
 							<img src="<?php echo esc_url($img_url);?>" alt="">
 						</div>
@@ -348,12 +376,20 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 			<div class="ourtrees-forest">
 				<div class="ourtrees-tree">
 					<div class="ourtrees-title">
-						<div class="ourtrees-highlight"> </div>
-						<span class="ourtrees-text">nos arbres <br/>en france</span>
+						<div class="ourtrees-highlight"
+						data-aos="fade-down"
+						data-aos-duration="900"
+						> </div>
+						<span class="ourtrees-text"
+						data-aos="fade-up"
+						data-aos-duration="900">
+						nos arbres <br/>en france</span>
 					</div>
 				</div>
 			</div>
-			<div class="ourtrees-map">
+			<div class="ourtrees-map"
+			data-aos="fade-in"
+			data-aos-duration="900">
 				<img class="ourtrees-carte" src="<?php echo get_template_directory_uri();?>/images/png/carte.png" alt="foret"" alt="Carte de France">
 			</div>
 		</section>
@@ -375,9 +411,19 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 				<div class="joinus-box-two">
 					<img class="site-footer-illustration mobile-ble" src="<?php echo get_template_directory_uri();?>/images/png/ble.png" alt="blé">
 					<div>
-						<div class="joinus-highlight"> </div>
-						<div class="joinus-text">rejoignez-nous !</div>
-						<?php echo do_shortcode("[formidable id=2]"); ?>
+						<div class="joinus-highlight"
+						data-aos="fade-down"
+						data-aos-duration="1200"> </div>
+						<div class="joinus-text"
+						data-aos="fade-down"
+						data-aos-duration="1200">
+							rejoignez-nous !
+						</div>
+						<div
+						data-aos="fade-down"
+						data-aos-duration="1200">
+							<?php echo do_shortcode("[formidable id=2]"); ?>
+						</div>
 					</div>
 					<img class="site-footer-illustration mobile-ble" src="<?php echo get_template_directory_uri();?>/images/png/ble.png" alt="blé">
 				</div>
@@ -396,9 +442,19 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 		<!-- -------------- AGENDA --------------  -->
 		<section class="agenda-section agenda">
 			<div class="agenda-container container">
-			<h2 class="agenda-title">Agenda</h2>
+			
+			<div class=""
+			data-aos="fade-right"
+			data-aos-duration="1200">
+				<h2 class="agenda-title">
+					Agenda
+				</h2>
+			</div>
 			<div class="agenda-list">
-				<div class="agenda-event">
+				<div class="agenda-event"
+				data-aos="fade-up"
+				data-aos-duration="1400"
+				>
 					<div class="agenda-event__date">
 						<p>09</p>
 						<p>DEC</p>
@@ -410,7 +466,10 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 					</div>
 				</div>
 
-				<div class="agenda-event">
+				<div class="agenda-event"
+				data-aos="fade-up"
+				data-aos-duration="1400"
+				>
 					<div class="agenda-event__date">
 						<p>25</p>
 						<p>NOV</p>
@@ -422,7 +481,10 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 					</div>
 				</div>
 
-				<div class="agenda-event">
+				<div class="agenda-event"
+				data-aos="fade-up"
+				data-aos-duration="1400"
+				>
 					<div class="agenda-event__date">
 						<p>10</p>
 						<p>FEV</p>
@@ -434,7 +496,12 @@ $pre_url = "https://data.ademe.fr/data-fair/api/v1/datasets/agribalyse-synthese/
 					</div>
 				</div>
 				</div>
-				<a class="agenda-cta" href="">tous les événements <i class="fa-solid fa-turn-up"></i> </a>
+				<a class="agenda-cta" href=""
+				data-aos="fade-up"
+				data-aos-duration="1200"
+				>
+					tous les événements <i class="fa-solid fa-turn-up"></i> 
+				</a>
 			</div>
 		</section>
 		<div class="img-separator">

@@ -27,7 +27,7 @@ function devhackathon_scripts() {
   // Google Font
   wp_enqueue_style( 'googlefont' ,'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
   // AnimateOnScroll 
-  //wp_enqueue_style( 'aos-css' ,'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css', array(), '2.3.4');
+  wp_enqueue_style( 'aos-css' ,'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css', array(), '2.3.4');
   // Theme stylesheet.
   wp_enqueue_style( 'style-css', get_template_directory_uri() . '/css/style.css', array(), filemtime(get_template_directory() . '/css/style.css') );
   
@@ -37,7 +37,7 @@ function devhackathon_scripts() {
   // Jquery 
   wp_enqueue_script( 'jquery-core' );
   // AnimateOnScroll JS
-  //wp_enqueue_script( 'aos-js', 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js', array( 'jquery-core' ), '2.3.4', true );
+  wp_enqueue_script( 'aos-js', 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js', array( 'jquery-core' ), '2.3.4', true );
   // Si besoin, on appelle functions.js en footer pour des fonctions en JS ou Jquery spécifiques
   wp_enqueue_script( 'functions-js', get_template_directory_uri() . '/js/functions.js', array(), filemtime(get_template_directory() . '/js/functions.js'), true );
 

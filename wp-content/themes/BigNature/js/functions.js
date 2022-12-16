@@ -14,7 +14,9 @@ jQuery( document ).ready(function($) {
     // ---------------------------------------------------------
     // INITIALISATIONS
     // ---------------------------------------------------------    
-    
+    AOS.init({
+        once: true
+    });
     // ---------------------------------------------------------
     //ANIMATIONS
     // ---------------------------------------------------------
@@ -30,6 +32,7 @@ jQuery( document ).ready(function($) {
     gsap.to(intros,{
         opacity:0
     });
+    gsap.to("#intro-1",{opacity:1})
     gsap.to(panels, {
         xPercent: -120 * ( panels.length - 1 ),
         ease: "none",
